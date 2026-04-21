@@ -2,19 +2,41 @@ import { Link, useLocation } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import logo from "@/assets/grinta-logo.png";
 
+const SECTIONS = [
+  { id: "why", label: "Why this Matters" },
+  { id: "grinta", label: "Grinta" },
+  { id: "scorecard", label: "Competitors" },
+  { id: "reputation", label: "Reputation" },
+  { id: "infrastructure", label: "Infrastructure" },
+];
+
 /**
  * Editorial navbar: gold hairline under a thin marble strip.
  * Mark = Reflecter Labs philosopher bust.
  */
 export const Navbar = () => {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   const onPaper = pathname === "/paper";
+  const onHome = pathname === "/";
+
+  const handleAnchor = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    id: string,
+  ) => {
+    if (!onHome) return; // let router navigate to "/#id"
+    const el = document.getElementById(id);
+    if (el) {
+      e.preventDefault();
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      history.replaceState(null, "", `#${id}`);
+    }
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-[60]">
       <div className="backdrop-blur-md bg-background/75 border-b border-secondary/30">
-        <div className="mx-auto max-w-7xl flex items-center justify-between px-6 md:px-10 h-24">
-          <Link to="/" className="flex items-center gap-3 group">
+        <div className="mx-auto max-w-7xl flex items-center justify-between gap-6 px-6 md:px-10 h-24">
+          <Link to="/" className="flex items-center gap-3 group shrink-0">
             <img
               src={logo}
               alt="Grinta Governance"
@@ -32,7 +54,35 @@ export const Navbar = () => {
             </div>
           </Link>
 
-          <nav className="flex items-center gap-2">
+          {/* Section anchors — desktop only */}
+          {!onPaper && (
+            <nav className="hidden lg:flex items-center gap-1 flex-1 justify-center">
+              {SECTIONS.map((s) => {
+                const isActive = onHome && hash === `#${s.id}`;
+                return (
+                  <a
+                    key={s.id}
+                    href={`/#${s.id}`}
+                    onClick={(e) => handleAnchor(e, s.id)}
+                    className={`relative px-3 py-2 mono text-[11px] tracking-[0.25em] uppercase transition-colors ${
+                      isActive
+                        ? "text-secondary"
+                        : "text-foreground/65 hover:text-foreground"
+                    }`}
+                  >
+                    {s.label}
+                    <span
+                      className={`absolute left-3 right-3 -bottom-0.5 h-px bg-secondary transition-opacity ${
+                        isActive ? "opacity-100" : "opacity-0"
+                      }`}
+                    />
+                  </a>
+                );
+              })}
+            </nav>
+          )}
+
+          <nav className="flex items-center gap-2 shrink-0">
             {onPaper ? (
               <Link
                 to="/"

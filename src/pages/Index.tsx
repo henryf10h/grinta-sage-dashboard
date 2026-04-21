@@ -4,6 +4,8 @@ import { Parchment } from "@/components/home/Parchment";
 import { GovernanceFailures } from "@/components/home/GovernanceFailures";
 import { GrintaIntro } from "@/components/home/GrintaIntro";
 import { CompareTable } from "@/components/home/CompareTable";
+import { Reputation } from "@/components/home/Reputation";
+import { Infrastructure } from "@/components/home/Infrastructure";
 import { SectionDivider } from "@/components/home/SectionDivider";
 import column from "@/assets/column.png";
 
@@ -78,7 +80,7 @@ const Index = () => {
         </section>
 
         {/* HERO 2 — Parchment + governance failures wire */}
-        <section className="relative min-h-screen flex items-center px-6 py-24">
+        <section id="why" className="relative min-h-screen flex items-center px-6 py-24 scroll-mt-24">
           <div className="relative w-full max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
             <div className="order-2 lg:order-1">
               <Parchment />
@@ -100,9 +102,17 @@ const Index = () => {
         </section>
 
         <SectionDivider label="Product" />
-        <GrintaIntro />
+        <div id="grinta" className="scroll-mt-24">
+          <GrintaIntro />
+        </div>
         <SectionDivider label="Scorecard" />
-        <CompareTable />
+        <div id="scorecard" className="scroll-mt-24">
+          <CompareTable />
+        </div>
+        <SectionDivider label="Reputation" />
+        <Reputation />
+        <SectionDivider label="Infrastructure" />
+        <Infrastructure />
 
         <footer className="relative">
           <div className="mx-auto max-w-5xl px-6 py-16 flex flex-col items-center gap-4 border-t border-secondary/20">

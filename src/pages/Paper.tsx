@@ -44,6 +44,8 @@ const Paper = () => {
           </a>
         </footer>
       </main>
+
+      <FloatingSocialButtons />
     </div>
   );
 };

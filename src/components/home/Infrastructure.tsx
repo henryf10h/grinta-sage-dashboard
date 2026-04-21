@@ -60,9 +60,6 @@ export const Infrastructure = () => {
 
       <div className="relative z-10 max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <p className="reveal mono text-[14px] tracking-[0.5em] text-secondary uppercase mb-6">
-            Infrastructure
-          </p>
           <h2 className="reveal font-serif text-5xl md:text-7xl tracking-tight leading-[0.95]">
             The execution{" "}
             <span className="italic text-gradient-teal">framework</span>.

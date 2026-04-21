@@ -66,9 +66,6 @@ export const CompareTable = () => {
 
       <div className="relative max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <p className="reveal mono text-[14px] tracking-[0.5em] text-secondary uppercase mb-6">
-            Scorecard
-          </p>
           <h2 className="reveal font-serif text-5xl md:text-7xl tracking-tight leading-[0.95]">
             How Grinta{" "}
             <span className="italic text-gradient-teal">compares</span>.

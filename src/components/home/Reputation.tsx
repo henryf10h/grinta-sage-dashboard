@@ -19,7 +19,7 @@ export const Reputation = () => {
       />
 
       <div className="relative z-10 max-w-6xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <h2 className="reveal font-serif text-5xl md:text-7xl tracking-tight leading-[0.95]">
             Provable agents,{" "}
             <span className="italic text-gradient-gold">earned trust</span>.

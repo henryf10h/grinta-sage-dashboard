@@ -100,9 +100,15 @@ export const GrintaIntro = () => {
               </div>
 
               <div className="px-7 py-4 border-t border-secondary/30 bg-muted/20 flex items-center justify-between">
-                <span className="font-serif italic text-sm text-muted-foreground">
+                <a
+                  href="https://reflecterlabs.xyz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 font-serif italic text-sm text-muted-foreground hover:text-secondary transition-colors"
+                >
                   Reflecter Labs · 2025
-                </span>
+                  <ExternalLink className="w-3 h-3" />
+                </a>
                 <span className="flex items-center gap-2">
                   <span className="relative flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />

@@ -1,3 +1,4 @@
+import { ExternalLink } from "lucide-react";
 import { useGsapReveal } from "@/hooks/useGsapReveal";
 import { Navbar } from "@/components/Navbar";
 import { Parchment } from "@/components/home/Parchment";
@@ -114,13 +115,19 @@ const Index = () => {
         <Infrastructure />
 
         <footer className="relative">
-          <div className="mx-auto max-w-5xl px-6 py-16 flex flex-col items-center gap-4 border-t border-secondary/20">
+          <div className="mx-auto max-w-5xl px-6 py-24 md:py-32 pb-40 md:pb-48 flex flex-col items-center gap-4 border-t border-secondary/20">
             <span className="font-serif italic text-base text-foreground/70 text-center">
               "The unexamined protocol is not worth governing."
             </span>
-            <span className="mono text-[14px] tracking-[0.4em] uppercase text-muted-foreground/70">
+            <a
+              href="https://reflecterlabs.xyz"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 mono text-[14px] tracking-[0.4em] uppercase text-muted-foreground/70 hover:text-secondary transition-colors group"
+            >
               Reflecter Labs · Grinta Governance
-            </span>
+              <ExternalLink className="w-3.5 h-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </a>
           </div>
         </footer>
       </main>

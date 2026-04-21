@@ -13,31 +13,35 @@ import { ExternalLink, ArrowDown } from "lucide-react";
 
 const TOTAL = 10;
 
+/* ──────────────────────────────────────────────
+ * Normalized typographic primitives — match the
+ * landing's neoclassical editorial system.
+ * ────────────────────────────────────────────── */
+
 const Eyebrow = ({ children }: { children: React.ReactNode }) => (
-  <p className="reveal mono text-[14px] tracking-[0.4em] text-primary/80 uppercase mb-5">
+  <p className="reveal mono text-[12px] md:text-[13px] tracking-[0.4em] text-secondary/80 uppercase mb-5">
     {children}
   </p>
 );
 
 const Title = ({ children }: { children: React.ReactNode }) => (
-  <h2 className="reveal font-serif text-4xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight mb-6">
+  <h2 className="reveal font-serif text-4xl md:text-6xl lg:text-7xl leading-[0.95] tracking-tight mb-6 text-foreground">
     {children}
   </h2>
 );
 
 const Body = ({ children }: { children: React.ReactNode }) => (
-  <p className="reveal text-lg md:text-xl leading-relaxed text-foreground/80 max-w-3xl">
+  <p className="reveal text-base md:text-lg leading-[1.8] text-foreground/85 max-w-2xl">
     {children}
   </p>
 );
 
 const GoldQuote = ({ children }: { children: React.ReactNode }) => (
-  <blockquote className="reveal font-serif italic text-2xl md:text-3xl leading-snug text-secondary max-w-4xl border-l-2 border-secondary/60 pl-6 my-8">
+  <blockquote className="reveal font-serif italic text-xl md:text-2xl leading-snug text-gradient-gold max-w-3xl border-l border-secondary/40 pl-6 my-8">
     "{children}"
   </blockquote>
 );
 
-/** The Calicles narrative beat — now the lead-in of every slide, not hidden in a corner. */
 const Narrative = ({
   chapter,
   speaker,
@@ -47,22 +51,21 @@ const Narrative = ({
   speaker?: string;
   children: React.ReactNode;
 }) => (
-  <div className="reveal mb-8 max-w-3xl">
-    <p className="mono text-[14px] tracking-[0.4em] text-secondary/80 uppercase mb-3">
+  <div className="reveal mb-8 max-w-2xl">
+    <p className="mono text-[12px] md:text-[13px] tracking-[0.4em] text-primary/80 uppercase mb-3">
       Ágora · {chapter}
     </p>
-    <p className="font-serif italic text-xl md:text-2xl leading-relaxed text-foreground/90">
+    <p className="font-serif italic text-lg md:text-xl leading-relaxed text-foreground/85">
       {children}
     </p>
     {speaker && (
-      <p className="mono text-[14px] tracking-[0.3em] text-muted-foreground/70 mt-3 uppercase">
+      <p className="mono text-[11px] md:text-[12px] tracking-[0.3em] text-muted-foreground/70 mt-3 uppercase">
         — {speaker}
       </p>
     )}
   </div>
 );
 
-/** Parallax illustration with bold Tartakovsky framing — no fluffy gradient halo. */
 const ParallaxArt = ({
   src,
   alt,
@@ -76,7 +79,7 @@ const ParallaxArt = ({
 }) => (
   <div
     data-parallax={parallax}
-    className={`reveal-scale relative overflow-hidden rounded-2xl border border-foreground/10 shadow-[0_30px_80px_-20px_rgba(20,40,50,0.35)] ${className}`}
+    className={`reveal-scale relative overflow-hidden rounded-sm border border-foreground/10 shadow-[0_25px_60px_-20px_hsl(215_28%_17%/0.25)] ${className}`}
   >
     <img
       src={src}
@@ -106,7 +109,7 @@ export const StorySlides = () => {
             <Title>
               March 12, 2020.
               <br />
-              <span className="text-gradient-teal">ETH fell 43%</span> in a day.
+              <span className="italic text-gradient-teal">ETH fell 43%</span> in a day.
             </Title>
             <Body>
               MakerDAO had an active proposal to adjust liquidation parameters. It took
@@ -161,8 +164,8 @@ export const StorySlides = () => {
               not parameters.
             </Title>
             <Body>
-              Not <span className="mono text-base">"Set fee to 0.05%."</span> But:{" "}
-              <span className="font-serif italic text-foreground text-2xl">
+              Not <span className="mono text-sm">"Set fee to 0.05%."</span> But:{" "}
+              <span className="font-serif italic text-foreground text-xl">
                 "Fee may range 0.01–1.00%. Max change per update: 0.10%. Cooldown: 60s."
               </span>
             </Body>
@@ -170,7 +173,7 @@ export const StorySlides = () => {
               {["Uniswap", "Aave", "Ekubo", "Flaunch", "Any protocol"].map((p) => (
                 <span
                   key={p}
-                  className="px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-sm mono text-primary"
+                  className="px-4 py-1.5 rounded-sm border border-secondary/30 bg-card/60 mono text-[12px] tracking-[0.2em] uppercase text-foreground/80"
                 >
                   {p}
                 </span>
@@ -202,7 +205,7 @@ export const StorySlides = () => {
               "We call it: Grinta Governance."
             </span>
           </Title>
-          <p className="reveal text-sm text-muted-foreground mono tracking-widest">
+          <p className="reveal mono text-[12px] md:text-[13px] tracking-[0.4em] text-muted-foreground uppercase">
             HOROS · ὅρος · THE SACRED BOUNDARY
           </p>
         </div>
@@ -235,14 +238,14 @@ export const StorySlides = () => {
             ].map((c) => (
               <div
                 key={c.n}
-                className="group relative p-6 rounded-2xl border border-primary/20 bg-card/60 backdrop-blur-md transition-all duration-500 hover:border-primary/60 hover:shadow-[0_0_40px_hsl(var(--primary)/0.25)] hover:-translate-y-1 flex gap-5 items-start"
+                className="group relative p-6 rounded-sm border border-foreground/10 bg-card/70 backdrop-blur-sm transition-all duration-300 hover:border-secondary/40 hover:shadow-[0_10px_30px_-15px_hsl(215_28%_17%/0.25)] flex gap-5 items-start"
               >
-                <div className="font-serif text-5xl text-primary/30 group-hover:text-primary/70 transition-colors leading-none">
+                <div className="font-serif italic text-4xl text-secondary/60 group-hover:text-secondary transition-colors leading-none w-8">
                   {c.n}
                 </div>
                 <div>
-                  <h3 className="font-serif text-2xl mb-2">{c.t}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{c.d}</p>
+                  <h3 className="font-serif text-xl md:text-2xl mb-2 text-foreground">{c.t}</h3>
+                  <p className="text-sm md:text-base text-foreground/75 leading-relaxed">{c.d}</p>
                 </div>
               </div>
             ))}
@@ -272,17 +275,19 @@ export const StorySlides = () => {
               ].map((row, i) => (
                 <div
                   key={i}
-                  className={`grid grid-cols-4 gap-2 p-4 rounded-xl border ${
+                  className={`grid grid-cols-4 gap-2 p-4 rounded-sm border ${
                     i === 1
-                      ? "border-primary/40 bg-primary/5"
-                      : "border-border/60 bg-muted/40"
+                      ? "border-secondary/40 bg-gradient-to-b from-primary/5 to-primary/10"
+                      : "border-foreground/10 bg-card/60"
                   }`}
                 >
                   {row.map((cell, j) => (
                     <span
                       key={j}
                       className={`text-sm ${
-                        j === 0 ? "font-serif italic text-base" : "text-foreground/80"
+                        j === 0
+                          ? "font-serif italic text-base text-foreground"
+                          : "text-foreground/75"
                       }`}
                     >
                       {cell}
@@ -308,7 +313,7 @@ export const StorySlides = () => {
           <Title>
             Witness the Governor
             <br />
-            <span className="text-gradient-teal">in action.</span>
+            <span className="italic text-gradient-teal">in action.</span>
           </Title>
           <Body>
             Real inference. Real execution. A live AI agent adjusting parameters on Starknet
@@ -321,15 +326,15 @@ export const StorySlides = () => {
             href="https://grinta-loop-shanghai.onrender.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative block p-1 rounded-3xl bg-gradient-to-br from-primary/40 via-secondary/30 to-primary/40 transition-transform duration-500 hover:-translate-y-1"
+            className="group relative block rounded-sm border border-secondary/40 bg-card/80 backdrop-blur-sm transition-all duration-300 hover:border-secondary hover:shadow-[0_25px_60px_-20px_hsl(var(--secondary)/0.35)] hover:-translate-y-0.5"
           >
-            <div className="relative rounded-3xl bg-card/90 backdrop-blur-xl p-8 md:p-10 border border-primary/30 overflow-hidden">
-              <div className="absolute top-6 right-6 flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/15 border border-primary/40">
+            <div className="relative p-8 md:p-10 overflow-hidden">
+              <div className="absolute top-6 right-6 flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/30">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
                 </span>
-                <span className="mono text-[14px] tracking-[0.25em] text-primary uppercase">
+                <span className="mono text-[12px] tracking-[0.3em] text-primary uppercase">
                   Live
                 </span>
               </div>
@@ -340,24 +345,30 @@ export const StorySlides = () => {
                     src={slide6}
                     alt="Cálicles unveils the water-clock connected to a self-steering trireme"
                     loading="lazy"
-                    className="w-full rounded-2xl border border-foreground/10 shadow-2xl"
+                    className="w-full rounded-sm border border-foreground/10 shadow-lg"
                   />
                 </div>
                 <div className="md:col-span-3 text-left">
-                  <p className="mono text-sm tracking-widest text-secondary mb-2">
+                  <p className="mono text-[12px] tracking-[0.3em] text-secondary uppercase mb-3">
                     GRINTA-LOOP-SHANGHAI.ONRENDER.COM
                   </p>
-                  <h3 className="font-serif text-3xl md:text-4xl mb-3">
+                  <h3 className="font-serif text-2xl md:text-3xl mb-2 text-foreground">
                     Agent-as-Governor
                   </h3>
-                  <p className="text-muted-foreground mb-6">
+                  <p className="text-sm text-muted-foreground mb-6 mono tracking-[0.2em] uppercase">
                     AI-Driven Parameter Control · Starknet Sepolia
                   </p>
-                  <div className="inline-flex items-center gap-3 px-7 py-4 rounded-xl bg-gradient-to-r from-primary to-primary-glow text-primary-foreground font-medium shadow-[0_0_30px_hsl(var(--primary)/0.4)] animate-glow-pulse group-hover:scale-[1.02] transition-transform">
+                  <div
+                    className="inline-flex items-center gap-2 px-7 py-4 rounded-md text-primary-foreground font-medium text-base shadow-[0_8px_30px_-8px_hsl(var(--primary)/0.6)] group-hover:shadow-[0_12px_40px_-8px_hsl(var(--primary)/0.7)] transition-all"
+                    style={{
+                      background:
+                        "linear-gradient(120deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%)",
+                    }}
+                  >
                     <ExternalLink className="w-5 h-5" />
                     Launch Live Demo
                   </div>
-                  <p className="text-sm text-muted-foreground mt-4 italic">
+                  <p className="text-sm text-foreground/70 mt-4 italic font-serif">
                     Watch the AI propose KP/KI adjustments as BTC moves. See the PDR on-chain.
                   </p>
                 </div>
@@ -420,15 +431,15 @@ export const StorySlides = () => {
             ].map((p) => (
               <div
                 key={p.t}
-                className="group p-5 rounded-xl border border-border/60 bg-card/70 backdrop-blur-sm hover:border-secondary/60 hover:-translate-y-1 hover:shadow-[0_10px_40px_hsl(var(--secondary)/0.2)] transition-all duration-500"
+                className="group p-5 rounded-sm border border-foreground/10 bg-card/70 backdrop-blur-sm hover:border-secondary/40 hover:shadow-[0_10px_30px_-15px_hsl(215_28%_17%/0.25)] transition-all duration-300"
               >
-                <p className="mono text-sm tracking-widest text-secondary/80 mb-2">
+                <p className="mono text-[11px] tracking-[0.3em] uppercase text-secondary/80 mb-2">
                   {p.meta}
                 </p>
-                <h4 className="font-serif text-lg mb-1 group-hover:text-primary transition-colors">
+                <h4 className="font-serif text-lg md:text-xl mb-1 text-foreground group-hover:text-primary transition-colors">
                   {p.t}
                 </h4>
-                <p className="text-sm text-muted-foreground">{p.d}</p>
+                <p className="text-sm text-foreground/75 leading-relaxed">{p.d}</p>
               </div>
             ))}
           </div>
@@ -466,10 +477,14 @@ export const StorySlides = () => {
           ].map((x) => (
             <div
               key={x.k}
-              className="text-center p-4 rounded-xl border border-primary/20 bg-primary/5"
+              className="text-center p-5 rounded-sm border border-foreground/10 bg-card/60"
             >
-              <p className="mono text-sm tracking-widest text-primary">{x.k}</p>
-              <p className="text-sm text-muted-foreground mt-1">{x.v}</p>
+              <p className="font-serif text-xl md:text-2xl text-foreground tracking-tight">
+                {x.k}
+              </p>
+              <p className="mono text-[11px] tracking-[0.25em] uppercase text-muted-foreground/80 mt-2">
+                {x.v}
+              </p>
             </div>
           ))}
         </div>
@@ -486,10 +501,10 @@ export const StorySlides = () => {
           <Title>The path forward.</Title>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          <div className="reveal p-6 rounded-2xl border border-secondary/40 bg-secondary/5">
-            <p className="mono text-sm tracking-widest text-secondary mb-3">
-              ✓ DELIVERED · HACKATHON
+        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          <div className="reveal p-6 rounded-sm border border-secondary/40 bg-gradient-to-b from-secondary/5 to-secondary/10">
+            <p className="mono text-[12px] tracking-[0.3em] text-secondary uppercase mb-4">
+              ✓ Delivered · Hackathon
             </p>
             <ul className="space-y-3 text-foreground/85">
               <li className="flex gap-3">
@@ -507,9 +522,9 @@ export const StorySlides = () => {
             </ul>
           </div>
 
-          <div className="reveal p-6 rounded-2xl border border-primary/40 bg-primary/5">
-            <p className="mono text-sm tracking-widest text-primary mb-3">
-              → NEXT MILESTONES
+          <div className="reveal p-6 rounded-sm border border-primary/40 bg-gradient-to-b from-primary/5 to-primary/10">
+            <p className="mono text-[12px] tracking-[0.3em] text-primary uppercase mb-4">
+              → Next Milestones
             </p>
             <ul className="space-y-3 text-foreground/85">
               <li className="flex gap-3">
@@ -550,7 +565,7 @@ export const StorySlides = () => {
               The human defines the horoi. The agents compete within them.
               <span className="not-italic text-foreground"> Do we approve the Kybernetes?</span>
             </Narrative>
-            <h2 className="reveal font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight mb-6">
+            <h2 className="reveal font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight mb-6 text-foreground">
               Introducing{" "}
               <span className="text-gradient-gold">Grinta</span> —
               <br />
@@ -566,7 +581,7 @@ export const StorySlides = () => {
             <div className="reveal mt-8">
               <button
                 onClick={scrollToDemo}
-                className="group inline-flex items-center gap-3 px-8 py-5 rounded-xl text-primary-foreground font-medium text-lg shadow-[0_0_40px_hsl(var(--primary)/0.45)] transition-all hover:scale-[1.03]"
+                className="group inline-flex items-center gap-2 px-7 py-4 rounded-md text-primary-foreground font-medium text-base shadow-[0_8px_30px_-8px_hsl(var(--primary)/0.6)] hover:shadow-[0_12px_40px_-8px_hsl(var(--primary)/0.7)] hover:-translate-y-0.5 transition-all"
                 style={{
                   background:
                     "linear-gradient(120deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%)",
@@ -577,8 +592,8 @@ export const StorySlides = () => {
               </button>
             </div>
 
-            <p className="reveal mt-10 font-serif italic text-2xl md:text-3xl text-secondary leading-snug border-l-2 border-secondary/60 pl-6">
-              "The human defines the <span className="not-italic mono text-xl">horoi</span>.
+            <p className="reveal mt-10 font-serif italic text-xl md:text-2xl text-gradient-gold leading-snug border-l border-secondary/40 pl-6">
+              "The human defines the <span className="not-italic mono text-base">horoi</span>.
               The agents compete within them."
             </p>
           </div>
@@ -589,8 +604,8 @@ export const StorySlides = () => {
               alt="Cálicles plants his staff as the HOROS scroll unfurls above the Assembly"
               parallax={0.18}
             />
-            <p className="mt-6 text-center mono text-sm tracking-[0.4em] text-muted-foreground/70">
-              REFLECTER LABS · GRINTA GOVERNANCE
+            <p className="mt-6 text-center mono text-[12px] tracking-[0.4em] text-muted-foreground/70 uppercase">
+              Reflecter Labs · Grinta Governance
             </p>
           </div>
         </div>

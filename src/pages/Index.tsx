@@ -6,7 +6,13 @@ import { GrintaIntro } from "@/components/home/GrintaIntro";
 import { CompareTable } from "@/components/home/CompareTable";
 import { SectionDivider } from "@/components/home/SectionDivider";
 import column from "@/assets/column.png";
-import distrust from "@/assets/distrust-illustration.png";
+
+const STANDARDS = [
+  { label: "x402", caption: "Per-call agent payments" },
+  { label: "ERC-8004", caption: "Agent registry standard" },
+  { label: "TEE", caption: "Trusted execution" },
+  { label: "Cairo", caption: "On-chain enforcement" },
+];
 
 const Index = () => {
   useGsapReveal();
@@ -30,51 +36,43 @@ const Index = () => {
       <Navbar />
 
       <main className="relative z-10">
-        {/* HERO 1 — Distrust manifesto, single centered message */}
+        {/* HERO 1 — Pure typographic manifesto */}
         <section className="relative min-h-screen flex items-center justify-center px-6 pt-24 pb-16">
-          <div className="relative w-full max-w-3xl mx-auto flex flex-col items-center justify-center text-center">
-            <img
-              src={distrust}
-              alt="A handshake shattering — the broken trust at the heart of decentralized governance"
-              width={1024}
-              height={1024}
-              className="reveal-scale w-[260px] md:w-[360px] h-auto mb-10 select-none pointer-events-none"
-              style={{
-                filter:
-                  "drop-shadow(0 24px 40px hsl(215 28% 17% / 0.25)) drop-shadow(0 4px 8px hsl(215 28% 17% / 0.15))",
-              }}
-            />
-
-            <p className="reveal mono text-[12px] md:text-[14px] tracking-[0.5em] uppercase text-foreground/60 mb-6">
-              The crisis of governance
-            </p>
-
-            <h1 className="reveal font-serif text-4xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-foreground">
+          <div className="relative w-full max-w-5xl mx-auto flex flex-col items-center justify-center text-center">
+            <h1 className="reveal font-serif text-4xl md:text-6xl lg:text-[5.25rem] leading-[1.02] tracking-tight text-foreground">
               Decentralization promised{" "}
               <span className="italic text-gradient-gold">trust</span>.
               <br />
-              It delivered{" "}
-              <span className="italic relative inline-block">
-                doubt
-                <span
-                  aria-hidden
-                  className="absolute left-0 right-0 bottom-1 h-[3px] bg-destructive/70"
-                />
-              </span>
-              .
+              We deliver it,{" "}
+              <span className="italic">governed by</span>
+              <br />
+              <span className="font-semibold">specialized autonomous agents</span>.
             </h1>
 
-            <p className="reveal mt-8 max-w-2xl font-serif italic text-lg md:text-xl text-foreground/75 leading-relaxed">
-              Every protocol asks you to believe in a vote that arrives too
-              late, in a multisig you cannot see, in a forum thread that became
-              a fortune lost.
+            <p className="reveal mt-10 max-w-2xl font-serif italic text-lg md:text-xl text-foreground/75 leading-relaxed">
+              Bounded by the community on-chain. Auditable to the byte. Built
+              on the open standards that make agent-native finance possible.
             </p>
 
-            <div className="reveal mt-10 flex flex-col items-center gap-2">
-              <span className="mono text-[12px] tracking-[0.4em] uppercase text-muted-foreground/70">
-                Scroll to see the cost
-              </span>
-              <span className="block w-px h-12 bg-gradient-to-b from-secondary/60 to-transparent" />
+            {/* Standards row — gold hairline above & below */}
+            <div className="reveal w-full max-w-3xl mt-16">
+              <div className="h-px w-full bg-gradient-to-r from-transparent via-secondary/50 to-transparent" />
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-y-6 py-7">
+                {STANDARDS.map((s) => (
+                  <div
+                    key={s.label}
+                    className="flex flex-col items-center gap-1.5 px-2"
+                  >
+                    <span className="font-serif text-xl md:text-2xl text-foreground tracking-tight">
+                      {s.label}
+                    </span>
+                    <span className="mono text-[12px] md:text-[13px] tracking-[0.25em] uppercase text-muted-foreground/80 text-center">
+                      {s.caption}
+                    </span>
+                  </div>
+                ))}
+              </div>
+              <div className="h-px w-full bg-gradient-to-r from-transparent via-secondary/50 to-transparent" />
             </div>
           </div>
         </section>

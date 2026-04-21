@@ -155,7 +155,7 @@ export const GovernanceFailures = () => {
           </p>
 
           <div className="mt-5 inline-flex items-center gap-3 px-3 py-1.5 rounded-sm border border-destructive/30 bg-destructive/5">
-            <span className="mono text-[12px] tracking-[0.25em] uppercase text-destructive/80">
+            <span className="mono text-[13px] tracking-[0.22em] uppercase text-destructive font-medium">
               Cost
             </span>
             <span className="font-serif text-base text-foreground">
@@ -179,10 +179,10 @@ export const GovernanceFailures = () => {
               key={i}
               onClick={() => setActive(i)}
               aria-label={`Show headline ${i + 1}`}
-              className={`flex-1 min-w-[42px] py-2.5 mono text-[12px] tracking-[0.2em] uppercase transition-colors ${
+              className={`flex-1 min-w-[42px] py-2.5 mono text-[13px] tracking-[0.2em] uppercase font-medium transition-colors ${
                 i === active
                   ? "bg-foreground/[0.06] text-foreground"
-                  : "text-muted-foreground/60 hover:text-foreground/80 hover:bg-foreground/[0.03]"
+                  : "text-muted-foreground/70 hover:text-foreground/80 hover:bg-foreground/[0.03]"
               }`}
             >
               {String(i + 1).padStart(2, "0")}
@@ -192,7 +192,7 @@ export const GovernanceFailures = () => {
       </div>
 
       {/* Sub-caption */}
-      <p className="mt-4 mono text-[12px] tracking-[0.3em] uppercase text-muted-foreground/70 text-center">
+      <p className="mt-4 mono text-[13px] tracking-[0.28em] uppercase text-muted-foreground/80 text-center">
         Source archive · forums, post-mortems, on-chain records
       </p>
     </div>

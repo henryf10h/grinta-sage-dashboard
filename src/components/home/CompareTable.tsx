@@ -199,8 +199,24 @@ export const CompareTable = () => {
                 <div className="flex items-center justify-between">
                   <span className="text-muted-foreground">Market Cap</span>
                   <span>{row.marketCap}</span>
-                </ actualizo el archivo CompareTable.tsx para:
-1. Volver a poner Grinta como última fila (ya está hecho)
-2. Mover la columna Human Risk para que sea la segunda columna (después de Stablecoin)
-3. Cambiar el texto introductorio a color negro
-4. Modificar el texto a 
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-muted-foreground">TVL</span>
+                  <span>{row.tvl}</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-muted-foreground">Max Yield</span>
+                  <span>{row.maxYield}</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-muted-foreground">Depeg History</span>
+                  <span>{row.depeg}</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};

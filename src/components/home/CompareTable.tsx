@@ -78,8 +78,9 @@ export const CompareTable = () => {
             How we{" "}
             <span className="italic text-gradient-teal">compare</span>.
           </h2>
-          <p className="reveal mt-6 font-serif italic text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto">
-            Stablecoins are serious business — a market with a TAM of{" "}
+          <p className="reveal mt-6 font-serif italic text-lg md:text-xl text-black max-w-2xl mx-auto">
+            Stablecoins are a{" "}
+            <span className="not-italic font-semibold">market with a TAM of</span>{" "}
             <span className="not-italic font-semibold text-foreground">
               $3 trillion
             </span>

@@ -1,4 +1,4 @@
-import { MessageCircle } from "lucide-react";
+import { MessageCircle, ExternalLink } from "lucide-react";
 
 const XLogo = ({ className }: { className?: string }) => (
   <svg
@@ -39,6 +39,21 @@ export const FloatingSocialButtons = () => {
         </span>
         <span className="font-medium text-sm text-foreground/90 group-hover:text-foreground">
           Join Community
+        </span>
+      </a>
+
+      {/* Launch Live Demo - Same style as others, gold icon */}
+      <a
+        href="https://grinta-loop-shanghai.onrender.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group flex items-center gap-2.5 px-5 py-3 bg-background/90 backdrop-blur-xl border border-secondary rounded-full shadow-2xl shadow-black/20 hover:shadow-[0_0_30px_-5px_hsl(var(--secondary)/0.4)] hover:border-secondary hover:scale-105 transition-all duration-300"
+      >
+        <span className="flex items-center justify-center w-8 h-8 rounded-full bg-[#C9A227] text-white group-hover:bg-[#D4AF37] transition-colors duration-300">
+          <ExternalLink className="w-4 h-4" />
+        </span>
+        <span className="font-medium text-sm text-foreground/90 group-hover:text-foreground">
+          Launch Live Demo
         </span>
       </a>
     </div>

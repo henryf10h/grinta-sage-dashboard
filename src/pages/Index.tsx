@@ -46,7 +46,8 @@ const Index = () => {
           <div className="relative w-full max-w-5xl mx-auto flex flex-col items-center justify-center text-center">
             <h1 className="reveal font-serif text-4xl md:text-6xl lg:text-[5.25rem] leading-[1.02] tracking-tight text-foreground">
               The first Stablecoin{" "}
-              <span className="italic text-gradient-gold">without human risk</span>.
+              <span className="italic text-foreground">without </span>
+              <span className="italic text-gradient-gold">human risk</span>.
               <br />
               We deliver it,{" "}
               <span className="italic">governed by</span>
@@ -54,7 +55,7 @@ const Index = () => {
               <span className="font-semibold">specialized autonomous agents</span>.
             </h1>
 
-            <p className="reveal mt-10 max-w-2xl font-serif italic text-xl md:text-2xl text-foreground/85 leading-relaxed">
+            <p className="reveal mt-10 max-w-none font-serif italic font-bold text-xl md:text-2xl text-foreground/85 leading-relaxed md:whitespace-nowrap">
               Built on the open standards that make agent-native finance possible. Auditable to the byte.
             </p>
 

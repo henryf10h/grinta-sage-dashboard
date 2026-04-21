@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
  */
 export const GrintaIntro = () => {
   return (
-    <section className="relative px-6 py-24 md:py-32 overflow-hidden">
+    <section className="relative px-6 py-12 md:py-16 overflow-hidden">
       {/* Cool teal radial atmosphere — only behind this section */}
       <div
         aria-hidden

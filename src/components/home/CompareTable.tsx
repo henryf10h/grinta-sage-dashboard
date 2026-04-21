@@ -53,7 +53,7 @@ const Icon = ({ kind }: { kind: Cell["kind"] }) => {
 
 export const CompareTable = () => {
   return (
-    <section className="relative px-6 py-24 md:py-32">
+    <section className="relative px-6 py-12 md:py-16">
       {/* Faint horizontal hairline pattern */}
       <div
         aria-hidden

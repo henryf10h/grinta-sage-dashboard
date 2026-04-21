@@ -7,7 +7,7 @@ import { ShieldCheck, Network, Award, Coins } from "lucide-react";
  */
 export const Reputation = () => {
   return (
-    <section id="reputation" className="relative px-6 py-24 md:py-32 overflow-hidden">
+    <section id="reputation" className="relative px-6 py-12 md:py-16 overflow-hidden">
       {/* Soft amber atmosphere only behind this section */}
       <div
         aria-hidden

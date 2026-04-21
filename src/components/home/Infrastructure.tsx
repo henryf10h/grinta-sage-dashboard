@@ -37,7 +37,7 @@ export const Infrastructure = () => {
   ];
 
   return (
-    <section id="infrastructure" className="relative px-6 py-24 md:py-32 overflow-hidden">
+    <section id="infrastructure" className="relative px-6 py-12 md:py-16 overflow-hidden">
       {/* Cool slate atmosphere */}
       <div
         aria-hidden

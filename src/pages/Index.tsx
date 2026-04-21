@@ -14,7 +14,7 @@ const STANDARDS = [
   { label: "ERC-8004", caption: "Agent registry standard" },
   { label: "Parameters Guard", caption: "On-chain enforcement" },
   { label: "RL small model", caption: "Specialized agents" },
-  { label: "TEE", caption: "Trusted execution" },
+  { label: "TEE", caption: "Trusted Execution Environment" },
 ];
 
 const Index = () => {

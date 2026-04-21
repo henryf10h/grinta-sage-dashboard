@@ -4,46 +4,46 @@ type RiskCell = { kind: "yes" | "no"; label: string };
 
 type Row = {
   name: string;
+  humanRisk: RiskCell;
   marketCap: string;
   tvl: string;
   maxYield: string;
   depeg: string;
-  humanRisk: RiskCell;
   highlight?: boolean;
 };
 
 const ROWS: Row[] = [
   {
     name: "USDC",
+    humanRisk: { kind: "yes", label: "Yes" },
     marketCap: "~$75.6B",
     tvl: "High in DeFi",
     maxYield: "6–8% APY",
     depeg: "Yes (2023 SVB)",
-    humanRisk: { kind: "yes", label: "Yes" },
   },
   {
     name: "USDT",
+    humanRisk: { kind: "yes", label: "Yes" },
     marketCap: "~$187B",
     tvl: "DeFi leader",
     maxYield: "2–6% APY",
     depeg: "Minimal",
-    humanRisk: { kind: "yes", label: "Yes" },
   },
   {
     name: "DAI",
+    humanRisk: { kind: "yes", label: "Yes" },
     marketCap: "~$5.4B",
     tvl: "~$2.3B (RWAs)",
     maxYield: "5–8% APY",
     depeg: "Yes (2023 slips)",
-    humanRisk: { kind: "yes", label: "Yes" },
   },
   {
     name: "Grinta",
+    humanRisk: { kind: "no", label: "No" },
     marketCap: "n/a (testnet)",
     tvl: "n/a (testnet)",
     maxYield: "Yield Bounded 8%+",
     depeg: "None (bounded)",
-    humanRisk: { kind: "no", label: "No" },
     highlight: true,
   },
 ];
@@ -97,6 +97,9 @@ export const CompareTable = () => {
               Stablecoin
             </div>
             <div className="col-span-2 px-4 py-6 mono text-[13px] tracking-[0.3em] uppercase text-muted-foreground border-b border-foreground/10 border-l border-foreground/10">
+              Human Risk
+            </div>
+            <div className="col-span-2 px-4 py-6 mono text-[13px] tracking-[0.3em] uppercase text-muted-foreground border-b border-foreground/10 border-l border-foreground/10">
               Market Cap
             </div>
             <div className="col-span-2 px-4 py-6 mono text-[13px] tracking-[0.3em] uppercase text-muted-foreground border-b border-foreground/10 border-l border-foreground/10">
@@ -107,9 +110,6 @@ export const CompareTable = () => {
             </div>
             <div className="col-span-2 px-4 py-6 mono text-[13px] tracking-[0.3em] uppercase text-muted-foreground border-b border-foreground/10 border-l border-foreground/10">
               Depeg History
-            </div>
-            <div className="col-span-2 px-4 py-6 mono text-[13px] tracking-[0.3em] uppercase text-muted-foreground border-b border-foreground/10 border-l border-foreground/10">
-              Human Risk
             </div>
 
             {/* Rows */}
@@ -142,6 +142,12 @@ export const CompareTable = () => {
                     </span>
                   </div>
                   <div className={`col-span-2 ${cellBase} ${cellTone}`}>
+                    <span className="inline-flex items-center gap-2">
+                      <RiskIcon kind={row.humanRisk.kind} />
+                      {row.humanRisk.label}
+                    </span>
+                  </div>
+                  <div className={`col-span-2 ${cellBase} ${cellTone}`}>
                     {row.marketCap}
                   </div>
                   <div className={`col-span-2 ${cellBase} ${cellTone}`}>
@@ -152,12 +158,6 @@ export const CompareTable = () => {
                   </div>
                   <div className={`col-span-2 ${cellBase} ${cellTone}`}>
                     {row.depeg}
-                  </div>
-                  <div className={`col-span-2 ${cellBase} ${cellTone}`}>
-                    <span className="inline-flex items-center gap-2">
-                      <RiskIcon kind={row.humanRisk.kind} />
-                      {row.humanRisk.label}
-                    </span>
                   </div>
                 </div>
               );
@@ -190,33 +190,17 @@ export const CompareTable = () => {
               </div>
               <div className="space-y-2 text-sm">
                 <div className="flex items-center justify-between">
-                  <span className="text-muted-foreground">Market Cap</span>
-                  <span>{row.marketCap}</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-muted-foreground">TVL</span>
-                  <span>{row.tvl}</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-muted-foreground">Max Yield</span>
-                  <span>{row.maxYield}</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-muted-foreground">Depeg History</span>
-                  <span>{row.depeg}</span>
-                </div>
-                <div className="flex items-center justify-between">
                   <span className="text-muted-foreground">Human Risk</span>
                   <span className="inline-flex items-center gap-2">
                     <RiskIcon kind={row.humanRisk.kind} />
                     {row.humanRisk.label}
                   </span>
                 </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
+                <div className="flex items-center justify-between">
+                  <span className="text-muted-foreground">Market Cap</span>
+                  <span>{row.marketCap}</span>
+                </ actualizo el archivo CompareTable.tsx para:
+1. Volver a poner Grinta como última fila (ya está hecho)
+2. Mover la columna Human Risk para que sea la segunda columna (después de Stablecoin)
+3. Cambiar el texto introductorio a color negro
+4. Modificar el texto a 

@@ -193,13 +193,13 @@ export const StorySlides = () => {
           <Narrative chapter="04 · Three Slabs" speaker="Cálicles, hammer in hand">
             I carved three slabs of marble: the bounds of the parameter, the maximum delta,
             the cooldown. The Kybernetes proposes — the marble contract validates. We call it
-            <span className="not-italic text-foreground"> Horos Protocol</span> — the law that cannot be crossed.
+            <span className="not-italic text-foreground"> Grinta Governance</span> — the law that cannot be crossed.
           </Narrative>
           <Title>
             Parameter Guard
             <br />
             <span className="font-serif italic text-gradient-gold text-3xl md:text-4xl">
-              "We call it: Horos Protocol."
+              "We call it: Grinta Governance."
             </span>
           </Title>
           <p className="reveal text-sm text-muted-foreground mono tracking-widest">
@@ -268,7 +268,7 @@ export const StorySlides = () => {
             <div className="reveal-stagger space-y-3 mt-6">
               {[
                 ["Traditional DAO", "Unbounded vote", "Days of latency", "Subject to whales / mev"],
-                ["Horos Protocol", "Bounded autonomy", "Block-time response", "On-chain enforced limits"],
+                ["Grinta Governance", "Bounded autonomy", "Block-time response", "On-chain enforced limits"],
               ].map((row, i) => (
                 <div
                   key={i}
@@ -590,7 +590,7 @@ export const StorySlides = () => {
               parallax={0.18}
             />
             <p className="mt-6 text-center mono text-sm tracking-[0.4em] text-muted-foreground/70">
-              REFLECTER LABS · HOROS PROTOCOL
+              REFLECTER LABS · GRINTA GOVERNANCE
             </p>
           </div>
         </div>

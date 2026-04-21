@@ -28,21 +28,6 @@ export const FloatingSocialButtons = () => {
         </span>
       </a>
 
-      {/* Launch Live Demo - Gold Style */}
-      <a
-        href="https://grinta-loop-shanghai.onrender.com/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="group flex items-center gap-2.5 px-5 py-3 bg-gradient-to-r from-[#C9A227] via-[#D4AF37] to-[#B8941F] rounded-full shadow-2xl shadow-black/20 hover:shadow-[0_0_30px_-5px_rgba(201,162,39,0.5)] hover:scale-105 transition-all duration-300"
-      >
-        <span className="flex items-center justify-center w-8 h-8 rounded-full bg-white/20 text-white group-hover:bg-white/30 transition-colors duration-300">
-          <ExternalLink className="w-4 h-4" />
-        </span>
-        <span className="font-medium text-sm text-white group-hover:text-white">
-          Launch Live Demo
-        </span>
-      </a>
-
       <a
         href="https://t.me/+Z2ehPyJUQsAwOGRh"
         target="_blank"
@@ -54,6 +39,21 @@ export const FloatingSocialButtons = () => {
         </span>
         <span className="font-medium text-sm text-foreground/90 group-hover:text-foreground">
           Join Community
+        </span>
+      </a>
+
+      {/* Launch Live Demo - Gold Style (darker, positioned right) */}
+      <a
+        href="https://grinta-loop-shanghai.onrender.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group flex items-center gap-2.5 px-5 py-3 bg-gradient-to-r from-[#8B6914] via-[#A67C00] to-[#7A5C0A] rounded-full shadow-2xl shadow-black/20 hover:shadow-[0_0_30px_-5px_rgba(166,124,0,0.4)] hover:scale-105 transition-all duration-300"
+      >
+        <span className="flex items-center justify-center w-8 h-8 rounded-full bg-white/15 text-white group-hover:bg-white/25 transition-colors duration-300">
+          <ExternalLink className="w-4 h-4" />
+        </span>
+        <span className="font-medium text-sm text-white group-hover:text-white">
+          Launch Live Demo
         </span>
       </a>
     </div>

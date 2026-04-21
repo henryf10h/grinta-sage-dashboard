@@ -135,8 +135,3 @@ export const Infrastructure = () => {
       </div>
     </section>
   );
-};
-      </div>
-    </section>
-  );
-};

@@ -14,15 +14,6 @@ type Row = {
 
 const ROWS: Row[] = [
   {
-    name: "Grinta",
-    marketCap: "n/a (testnet)",
-    tvl: "n/a (testnet)",
-    maxYield: "Yield Bounded 8%+",
-    depeg: "None (bounded)",
-    humanRisk: { kind: "no", label: "No" },
-    highlight: true,
-  },
-  {
     name: "USDC",
     marketCap: "~$75.6B",
     tvl: "High in DeFi",
@@ -45,6 +36,15 @@ const ROWS: Row[] = [
     maxYield: "5–8% APY",
     depeg: "Yes (2023 slips)",
     humanRisk: { kind: "yes", label: "Yes" },
+  },
+  {
+    name: "Grinta",
+    marketCap: "n/a (testnet)",
+    tvl: "n/a (testnet)",
+    maxYield: "Yield Bounded 8%+",
+    depeg: "None (bounded)",
+    humanRisk: { kind: "no", label: "No" },
+    highlight: true,
   },
 ];
 

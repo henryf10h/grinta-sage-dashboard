@@ -8,15 +8,6 @@ import { Link } from "react-router-dom";
 export const GrintaIntro = () => {
   return (
     <section className="relative px-6 py-12 md:py-16 overflow-hidden">
-      {/* Cool teal radial atmosphere — only behind this section */}
-      <div
-        aria-hidden
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(60% 50% at 30% 40%, hsl(170 60% 90% / 0.6) 0%, transparent 70%), radial-gradient(40% 30% at 80% 70%, hsl(43 60% 88% / 0.5) 0%, transparent 70%)",
-        }}
-      />
 
       <div className="relative z-10 max-w-6xl mx-auto grid md:grid-cols-12 gap-10 md:gap-16 items-start">
         {/* LEFT — name + manifesto */}

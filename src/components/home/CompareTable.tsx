@@ -4,47 +4,47 @@ type RiskCell = { kind: "yes" | "no"; label: string };
 
 type Row = {
   name: string;
+  humanRisk: RiskCell;
   marketCap: string;
   tvl: string;
   maxYield: string;
   depeg: string;
-  humanRisk: RiskCell;
   highlight?: boolean;
 };
 
 const ROWS: Row[] = [
   {
-    name: "Grinta",
-    marketCap: "n/a (testnet)",
-    tvl: "n/a (testnet)",
-    maxYield: "Yield Bounded 8%+",
-    depeg: "None (bounded)",
-    humanRisk: { kind: "no", label: "No" },
-    highlight: true,
-  },
-  {
     name: "USDC",
+    humanRisk: { kind: "yes", label: "Yes" },
     marketCap: "~$75.6B",
     tvl: "High in DeFi",
     maxYield: "6–8% APY",
     depeg: "Yes (2023 SVB)",
-    humanRisk: { kind: "yes", label: "Yes" },
   },
   {
     name: "USDT",
+    humanRisk: { kind: "yes", label: "Yes" },
     marketCap: "~$187B",
     tvl: "DeFi leader",
     maxYield: "2–6% APY",
     depeg: "Minimal",
-    humanRisk: { kind: "yes", label: "Yes" },
   },
   {
     name: "DAI",
+    humanRisk: { kind: "yes", label: "Yes" },
     marketCap: "~$5.4B",
     tvl: "~$2.3B (RWAs)",
     maxYield: "5–8% APY",
     depeg: "Yes (2023 slips)",
-    humanRisk: { kind: "yes", label: "Yes" },
+  },
+  {
+    name: "Grinta",
+    humanRisk: { kind: "no", label: "No" },
+    marketCap: "n/a (testnet)",
+    tvl: "n/a (testnet)",
+    maxYield: "Yield Bounded 8%+",
+    depeg: "None (bounded)",
+    highlight: true,
   },
 ];
 
@@ -78,8 +78,9 @@ export const CompareTable = () => {
             How we{" "}
             <span className="italic text-gradient-teal">compare</span>.
           </h2>
-          <p className="reveal mt-6 font-serif italic text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto">
-            Stablecoins are serious business — a market with a TAM of{" "}
+          <p className="reveal mt-6 font-serif italic text-lg md:text-xl text-black max-w-2xl mx-auto">
+            Stablecoins are a{" "}
+            <span className="not-italic font-semibold">market with a TAM of</span>{" "}
             <span className="not-italic font-semibold text-foreground">
               $3 trillion
             </span>
@@ -96,6 +97,9 @@ export const CompareTable = () => {
               Stablecoin
             </div>
             <div className="col-span-2 px-4 py-6 mono text-[13px] tracking-[0.3em] uppercase text-muted-foreground border-b border-foreground/10 border-l border-foreground/10">
+              Human Risk
+            </div>
+            <div className="col-span-2 px-4 py-6 mono text-[13px] tracking-[0.3em] uppercase text-muted-foreground border-b border-foreground/10 border-l border-foreground/10">
               Market Cap
             </div>
             <div className="col-span-2 px-4 py-6 mono text-[13px] tracking-[0.3em] uppercase text-muted-foreground border-b border-foreground/10 border-l border-foreground/10">
@@ -106,9 +110,6 @@ export const CompareTable = () => {
             </div>
             <div className="col-span-2 px-4 py-6 mono text-[13px] tracking-[0.3em] uppercase text-muted-foreground border-b border-foreground/10 border-l border-foreground/10">
               Depeg History
-            </div>
-            <div className="col-span-2 px-4 py-6 mono text-[13px] tracking-[0.3em] uppercase text-muted-foreground border-b border-foreground/10 border-l border-foreground/10">
-              Human Risk
             </div>
 
             {/* Rows */}
@@ -141,6 +142,12 @@ export const CompareTable = () => {
                     </span>
                   </div>
                   <div className={`col-span-2 ${cellBase} ${cellTone}`}>
+                    <span className="inline-flex items-center gap-2">
+                      <RiskIcon kind={row.humanRisk.kind} />
+                      {row.humanRisk.label}
+                    </span>
+                  </div>
+                  <div className={`col-span-2 ${cellBase} ${cellTone}`}>
                     {row.marketCap}
                   </div>
                   <div className={`col-span-2 ${cellBase} ${cellTone}`}>
@@ -151,12 +158,6 @@ export const CompareTable = () => {
                   </div>
                   <div className={`col-span-2 ${cellBase} ${cellTone}`}>
                     {row.depeg}
-                  </div>
-                  <div className={`col-span-2 ${cellBase} ${cellTone}`}>
-                    <span className="inline-flex items-center gap-2">
-                      <RiskIcon kind={row.humanRisk.kind} />
-                      {row.humanRisk.label}
-                    </span>
                   </div>
                 </div>
               );
@@ -189,6 +190,13 @@ export const CompareTable = () => {
               </div>
               <div className="space-y-2 text-sm">
                 <div className="flex items-center justify-between">
+                  <span className="text-muted-foreground">Human Risk</span>
+                  <span className="inline-flex items-center gap-2">
+                    <RiskIcon kind={row.humanRisk.kind} />
+                    {row.humanRisk.label}
+                  </span>
+                </div>
+                <div className="flex items-center justify-between">
                   <span className="text-muted-foreground">Market Cap</span>
                   <span>{row.marketCap}</span>
                 </div>
@@ -203,13 +211,6 @@ export const CompareTable = () => {
                 <div className="flex items-center justify-between">
                   <span className="text-muted-foreground">Depeg History</span>
                   <span>{row.depeg}</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-muted-foreground">Human Risk</span>
-                  <span className="inline-flex items-center gap-2">
-                    <RiskIcon kind={row.humanRisk.kind} />
-                    {row.humanRisk.label}
-                  </span>
                 </div>
               </div>
             </div>

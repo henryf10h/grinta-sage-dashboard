@@ -84,10 +84,7 @@ const Index = () => {
         {/* HERO 2 — Parchment + governance failures wire */}
         <section id="why" className="relative min-h-screen flex items-center px-6 py-16 scroll-mt-24">
           <div className="relative w-full max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
-            <div className="order-2 lg:order-1">
-              <Parchment />
-            </div>
-            <div className="order-1 lg:order-2">
+            <div>
               <h2 className="reveal font-serif text-3xl md:text-4xl leading-[1.1] tracking-tight text-foreground mb-6 text-center lg:text-left">
                 Every hour governance sleeps,
                 <br />
@@ -96,6 +93,9 @@ const Index = () => {
                 </span>
               </h2>
               <GovernanceFailures />
+            </div>
+            <div>
+              <Parchment />
             </div>
           </div>
         </section>

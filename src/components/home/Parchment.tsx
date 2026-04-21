@@ -62,26 +62,18 @@ export const Parchment = () => {
         <div className="relative">
           <div className="reveal flex items-center justify-center gap-4 mb-7">
             <span className="flex-1 h-px bg-gold-soft/60" />
-            <span className="mono text-[14px] tracking-[0.45em] text-secondary uppercase font-medium">
-              Reflecter Labs
-            </span>
+            <span className="w-2 h-2 rotate-45 bg-secondary/60" />
             <span className="flex-1 h-px bg-gold-soft/60" />
           </div>
 
-          <h1 className="reveal font-serif text-[2.25rem] md:text-5xl lg:text-[3.4rem] leading-[1.05] tracking-tight text-center text-foreground">
-            Bounded autonomy
-            <br />
-            your DAO can{" "}
-            <span className="italic text-gradient-gold">trust</span>.
-          </h1>
-
-          <p className="reveal mt-7 text-[15px] leading-[1.85] text-foreground/85 text-center">
-            <span className="font-serif text-gold-soft text-[1.5em] leading-none align-baseline">
+          <p className="reveal font-serif text-[1.75rem] md:text-[2.25rem] lg:text-[2.6rem] leading-[1.15] tracking-tight text-center text-foreground">
+            <span className="font-serif text-gold-soft text-[1.4em] leading-none align-baseline mr-1">
               D
             </span>
             AOs lose millions to governance latency. Grinta Governance lets
             autonomous agents adjust critical parameters in block-time —
-            within sacred limits the community sets on-chain.
+            within sacred limits the community sets{" "}
+            <span className="italic text-gradient-gold">on-chain</span>.
           </p>
 
           <div className="reveal mt-7 mono text-[13px] tracking-[0.3em] uppercase text-foreground/70 font-medium text-center">

@@ -58,24 +58,24 @@ const Index = () => {
             </p>
 
             {/* Standards row — gold hairline above & below */}
-            <div className="reveal w-full max-w-3xl mt-16">
-              <div className="h-px w-full bg-gradient-to-r from-transparent via-secondary/50 to-transparent" />
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-6 py-7">
+            <div className="reveal w-full max-w-3xl mt-16 rounded-lg border border-secondary/30 bg-gradient-to-b from-card/80 via-muted/60 to-card/80 backdrop-blur-sm shadow-[0_8px_40px_-12px_hsl(var(--secondary)/0.25)]">
+              <div className="h-px w-full bg-gradient-to-r from-transparent via-secondary/60 to-transparent" />
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-6 py-8 px-4">
                 {STANDARDS.map((s) => (
                   <div
                     key={s.label}
-                    className="flex flex-col items-center gap-1.5 px-2"
+                    className="flex flex-col items-center gap-2 px-2"
                   >
-                    <span className="font-serif text-xl md:text-2xl text-foreground tracking-tight">
+                    <span className="font-serif text-xl md:text-2xl text-foreground tracking-tight drop-shadow-sm">
                       {s.label}
                     </span>
-                    <span className="mono text-[12px] md:text-[13px] tracking-[0.25em] uppercase text-muted-foreground/80 text-center">
+                    <span className="mono text-[12px] md:text-[13px] tracking-[0.25em] uppercase text-muted-foreground/90 text-center">
                       {s.caption}
                     </span>
                   </div>
                 ))}
               </div>
-              <div className="h-px w-full bg-gradient-to-r from-transparent via-secondary/50 to-transparent" />
+              <div className="h-px w-full bg-gradient-to-r from-transparent via-secondary/60 to-transparent" />
             </div>
           </div>
         </section>

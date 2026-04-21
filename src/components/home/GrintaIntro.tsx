@@ -22,7 +22,7 @@ export const GrintaIntro = () => {
           </h2>
 
           <p className="reveal mt-8 font-serif italic text-2xl md:text-3xl text-gradient-gold leading-snug max-w-md">
-            The first stablecoin CDP governed by Grinta Governance.
+            The first stablecoin CDP governed by Autonomous Governance.
           </p>
 
           <p className="reveal mt-8 text-base md:text-lg leading-[1.8] text-foreground/85 max-w-md">

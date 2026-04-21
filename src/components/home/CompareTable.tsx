@@ -78,14 +78,8 @@ export const CompareTable = () => {
             How we{" "}
             <span className="italic text-gradient-teal">compare</span>.
           </h2>
-          <p className="reveal mt-6 font-serif italic text-lg md:text-xl text-black max-w-2xl mx-auto">
-            Stablecoins are a{" "}
-            <span className="not-italic font-semibold">market with a TAM of</span>{" "}
-            <span className="not-italic font-semibold text-foreground">
-              $3 trillion
-            </span>
-            . Here is how the leaders stack up, and where bounded autonomy
-            changes the game.
+          <p className="reveal mt-6 font-serif italic text-lg md:text-xl text-black max-w-3xl mx-auto">
+            El mercado de stablecoins tiene un TAM (capitalización de mercado) actual aproximado de 320 mil millones de dólares, con proyecciones de Citi que estiman un escenario base de 1,9 billones de dólares y un alcista de hasta 4 billones de dólares para 2030.
           </p>
         </div>
 

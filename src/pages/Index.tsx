@@ -125,6 +125,8 @@ const Index = () => {
           </div>
         </footer>
       </main>
+
+      <FloatingSocialButtons />
     </div>
   );
 };

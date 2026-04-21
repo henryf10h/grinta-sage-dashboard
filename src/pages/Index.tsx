@@ -46,7 +46,8 @@ const Index = () => {
           <div className="relative w-full max-w-5xl mx-auto flex flex-col items-center justify-center text-center">
             <h1 className="reveal font-serif text-4xl md:text-6xl lg:text-[5.25rem] leading-[1.02] tracking-tight text-foreground">
               The first Stablecoin{" "}
-              <span className="italic text-gradient-gold">without human risk</span>.
+              <span className="italic text-foreground">without </span>
+              <span className="italic text-gradient-gold">human risk</span>.
               <br />
               We deliver it,{" "}
               <span className="italic">governed by</span>

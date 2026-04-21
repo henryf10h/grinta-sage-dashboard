@@ -7,7 +7,7 @@ import { ShieldCheck, Network, Award, Coins } from "lucide-react";
  */
 export const Reputation = () => {
   return (
-    <section id="reputation" className="relative px-6 py-24 md:py-32 overflow-hidden">
+    <section id="reputation" className="relative px-6 py-12 md:py-16 overflow-hidden">
       {/* Soft amber atmosphere only behind this section */}
       <div
         aria-hidden
@@ -19,7 +19,7 @@ export const Reputation = () => {
       />
 
       <div className="relative z-10 max-w-6xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <h2 className="reveal font-serif text-5xl md:text-7xl tracking-tight leading-[0.95]">
             Provable agents,{" "}
             <span className="italic text-gradient-gold">earned trust</span>.

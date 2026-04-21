@@ -53,7 +53,7 @@ const Icon = ({ kind }: { kind: Cell["kind"] }) => {
 
 export const CompareTable = () => {
   return (
-    <section className="relative px-6 py-24 md:py-32">
+    <section className="relative px-6 py-12 md:py-16">
       {/* Faint horizontal hairline pattern */}
       <div
         aria-hidden
@@ -65,7 +65,7 @@ export const CompareTable = () => {
       />
 
       <div className="relative max-w-6xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <h2 className="reveal font-serif text-5xl md:text-7xl tracking-tight leading-[0.95]">
             How Grinta{" "}
             <span className="italic text-gradient-teal">compares</span>.

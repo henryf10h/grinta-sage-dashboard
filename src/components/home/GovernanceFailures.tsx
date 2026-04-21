@@ -115,11 +115,11 @@ export const GovernanceFailures = () => {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-destructive opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-destructive" />
             </span>
-            <span className="mono text-[12px] tracking-[0.3em] uppercase text-destructive">
+            <span className="mono text-[13px] tracking-[0.28em] uppercase text-destructive font-medium">
               The cost of slow governance
             </span>
           </div>
-          <span className="mono text-[12px] tracking-[0.25em] uppercase text-muted-foreground">
+          <span className="mono text-[13px] tracking-[0.22em] uppercase text-muted-foreground font-medium">
             Wire · {String(active + 1).padStart(2, "0")}/{HEADLINES.length}
           </span>
         </div>
@@ -129,33 +129,33 @@ export const GovernanceFailures = () => {
           key={active}
           className="px-6 md:px-8 py-7 min-h-[260px] animate-fade-in-up"
         >
-          <div className="flex items-center gap-3 mb-4">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mb-4">
             <span
-              className={`inline-flex items-center gap-1.5 mono text-[12px] tracking-[0.25em] uppercase ${TAG_META[headline.tag].color}`}
+              className={`inline-flex items-center gap-1.5 mono text-[13px] tracking-[0.22em] uppercase font-medium ${TAG_META[headline.tag].color}`}
             >
               <Icon className="w-3.5 h-3.5" />
               {TAG_META[headline.tag].label}
             </span>
             <span className="text-foreground/30">·</span>
-            <span className="mono text-[12px] tracking-[0.2em] uppercase text-muted-foreground">
+            <span className="mono text-[13px] tracking-[0.18em] uppercase text-muted-foreground font-medium">
               {headline.date}
             </span>
             <span className="text-foreground/30">·</span>
-            <span className="mono text-[12px] tracking-[0.2em] uppercase text-muted-foreground">
+            <span className="mono text-[13px] tracking-[0.18em] uppercase text-muted-foreground font-medium">
               {headline.source}
             </span>
           </div>
 
-          <h3 className="font-serif text-2xl md:text-[1.7rem] leading-[1.15] text-foreground mb-3">
+          <h3 className="font-serif text-2xl md:text-[1.7rem] leading-[1.2] text-foreground mb-3">
             {headline.title}
           </h3>
 
-          <p className="text-[14px] leading-[1.7] text-foreground/75">
+          <p className="text-[14.5px] leading-[1.75] text-foreground/80">
             {headline.body}
           </p>
 
           <div className="mt-5 inline-flex items-center gap-3 px-3 py-1.5 rounded-sm border border-destructive/30 bg-destructive/5">
-            <span className="mono text-[12px] tracking-[0.25em] uppercase text-destructive/80">
+            <span className="mono text-[13px] tracking-[0.22em] uppercase text-destructive font-medium">
               Cost
             </span>
             <span className="font-serif text-base text-foreground">
@@ -179,10 +179,10 @@ export const GovernanceFailures = () => {
               key={i}
               onClick={() => setActive(i)}
               aria-label={`Show headline ${i + 1}`}
-              className={`flex-1 min-w-[42px] py-2.5 mono text-[12px] tracking-[0.2em] uppercase transition-colors ${
+              className={`flex-1 min-w-[42px] py-2.5 mono text-[13px] tracking-[0.2em] uppercase font-medium transition-colors ${
                 i === active
                   ? "bg-foreground/[0.06] text-foreground"
-                  : "text-muted-foreground/60 hover:text-foreground/80 hover:bg-foreground/[0.03]"
+                  : "text-muted-foreground/70 hover:text-foreground/80 hover:bg-foreground/[0.03]"
               }`}
             >
               {String(i + 1).padStart(2, "0")}
@@ -192,7 +192,7 @@ export const GovernanceFailures = () => {
       </div>
 
       {/* Sub-caption */}
-      <p className="mt-4 mono text-[12px] tracking-[0.3em] uppercase text-muted-foreground/70 text-center">
+      <p className="mt-4 mono text-[13px] tracking-[0.28em] uppercase text-muted-foreground/80 text-center">
         Source archive · forums, post-mortems, on-chain records
       </p>
     </div>

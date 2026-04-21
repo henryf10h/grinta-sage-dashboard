@@ -13,54 +13,56 @@
   :root {
     /* Marble & paper */
     --background: 40 30% 97%;
-    --foreground: 215 28% 17%;
+    --foreground: 215 30% 14%;        /* Slightly deeper ink for stronger body contrast */
 
     --card: 0 0% 100%;
-    --card-foreground: 215 28% 17%;
+    --card-foreground: 215 30% 14%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 28% 17%;
+    --popover-foreground: 215 30% 14%;
 
     /* Teal — primary accent (Grinta) */
-    --primary: 170 100% 36%;
+    --primary: 174 100% 30%;          /* Slightly darker for AA on light marble */
     --primary-foreground: 0 0% 100%;
     --primary-glow: 170 80% 55%;
 
-    /* Warm gold — wisdom/governance */
-    --secondary: 43 52% 54%;
-    --secondary-foreground: 215 28% 17%;
+    /* Warm gold — wisdom/governance (darkened for AA contrast on cream) */
+    --secondary: 36 70% 38%;          /* was 43 52% 54% — too pale for body text */
+    --secondary-foreground: 0 0% 100%;
+    --secondary-soft: 43 52% 54%;     /* original soft tone for decorative rules / hairlines */
 
     --muted: 40 20% 92%;
-    --muted-foreground: 215 15% 40%;
+    --muted-foreground: 215 18% 32%;  /* lifted from 40% → 32% for legible metadata */
 
     --accent: 170 60% 94%;
-    --accent-foreground: 170 100% 25%;
+    --accent-foreground: 174 100% 22%;
 
-    --destructive: 0 72% 51%;
+    --destructive: 0 72% 45%;
     --destructive-foreground: 0 0% 100%;
 
-    --success: 158 64% 42%;
+    --success: 158 64% 36%;
     --success-foreground: 0 0% 100%;
-    --warning: 38 92% 50%;
-    --warning-foreground: 215 28% 17%;
+    --warning: 32 92% 42%;
+    --warning-foreground: 0 0% 100%;
 
-    --border: 215 20% 88%;
-    --input: 215 20% 88%;
-    --ring: 170 100% 36%;
+    --border: 215 20% 86%;
+    --input: 215 20% 86%;
+    --ring: 174 100% 30%;
 
     --radius: 0.75rem;
 
-    /* Gradients */
+    /* Gradients — gold tightened to deeper amber for accessible accent text */
     --gradient-marble: linear-gradient(135deg, hsl(40 30% 98%) 0%, hsl(40 25% 95%) 50%, hsl(40 30% 97%) 100%);
-    --gradient-teal: linear-gradient(135deg, hsl(170 100% 36%), hsl(170 80% 50%));
-    --gradient-gold: linear-gradient(135deg, hsl(43 60% 60%), hsl(38 70% 50%));
-    --gradient-crash: linear-gradient(135deg, hsl(0 75% 55%), hsl(15 80% 55%));
-    --gradient-pump: linear-gradient(135deg, hsl(158 64% 42%), hsl(170 80% 45%));
+    --gradient-teal: linear-gradient(135deg, hsl(174 100% 30%), hsl(170 80% 42%));
+    --gradient-gold: linear-gradient(135deg, hsl(36 75% 42%), hsl(28 80% 38%));
+    --gradient-gold-soft: linear-gradient(135deg, hsl(43 60% 60%), hsl(38 70% 50%));
+    --gradient-crash: linear-gradient(135deg, hsl(0 75% 50%), hsl(15 80% 50%));
+    --gradient-pump: linear-gradient(135deg, hsl(158 64% 38%), hsl(170 80% 42%));
 
     /* Shadows */
     --shadow-soft: 0 1px 2px hsl(215 20% 50% / 0.04), 0 4px 16px hsl(215 20% 50% / 0.06);
     --shadow-card: 0 1px 3px hsl(215 20% 50% / 0.06), 0 8px 32px hsl(215 20% 50% / 0.08);
-    --shadow-glow-teal: 0 0 0 1px hsl(170 100% 36% / 0.15), 0 8px 32px hsl(170 100% 36% / 0.18);
+    --shadow-glow-teal: 0 0 0 1px hsl(174 100% 30% / 0.15), 0 8px 32px hsl(174 100% 30% / 0.18);
     --shadow-press: inset 0 -3px 0 hsl(215 28% 17% / 0.12), 0 6px 16px hsl(215 28% 17% / 0.12);
 
     /* Typography */
@@ -77,15 +79,45 @@
     @apply border-border;
   }
 
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
   body {
     @apply bg-background text-foreground font-sans antialiased;
     background-image: var(--gradient-marble);
     background-attachment: fixed;
+    font-size: 16px;
+    line-height: 1.7;             /* Generous interline for readable paragraphs */
+    font-feature-settings: "ss01", "cv11", "calt";
+    letter-spacing: -0.005em;
+  }
+
+  p {
+    line-height: 1.75;
   }
 
   h1, h2, h3, h4 {
     font-family: var(--font-serif);
     @apply tracking-tight;
+    line-height: 1.1;
+  }
+
+  h1 { letter-spacing: -0.02em; }
+  h2 { letter-spacing: -0.015em; }
+
+  /* Mono labels — slightly bolder for the lapidary look without losing the thin hairline tracking */
+  .mono,
+  [class*="mono"] {
+    font-weight: 500;
+  }
+
+  /* Selection in brand colors */
+  ::selection {
+    background: hsl(var(--secondary) / 0.25);
+    color: hsl(var(--foreground));
   }
 }
 
@@ -125,6 +157,13 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+  }
+  /* Decorative-only soft gold (hairlines, ornaments) — NOT for body text */
+  .text-gold-soft {
+    color: hsl(var(--secondary-soft));
+  }
+  .bg-gold-soft {
+    background-color: hsl(var(--secondary-soft));
   }
 }
 

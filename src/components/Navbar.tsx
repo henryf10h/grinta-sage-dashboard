@@ -26,7 +26,7 @@ export const Navbar = () => {
               <span className="font-serif text-lg tracking-tight">
                 Grinta Governance
               </span>
-              <span className="hidden sm:inline mono text-[11px] tracking-[0.35em] text-muted-foreground/80 uppercase mt-1">
+              <span className="hidden sm:inline mono text-[12px] tracking-[0.3em] text-muted-foreground/90 uppercase mt-1 font-medium">
                 Reflecter Labs
               </span>
             </div>

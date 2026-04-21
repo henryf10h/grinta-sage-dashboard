@@ -61,20 +61,23 @@ export const useGsapReveal = () => {
         });
       });
 
-      // Parallax
-      gsap.utils.toArray<HTMLElement>("[data-parallax]").forEach((el) => {
-        const amount = parseFloat(el.dataset.parallax || "0.2");
-        gsap.to(el, {
-          yPercent: -amount * 100,
-          ease: "none",
-          scrollTrigger: {
-            trigger: el.closest("section") || el,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: true,
-          },
+      // Parallax — disabled on mobile to prevent overlap with stacked content
+      const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+      if (isDesktop) {
+        gsap.utils.toArray<HTMLElement>("[data-parallax]").forEach((el) => {
+          const amount = parseFloat(el.dataset.parallax || "0.2");
+          gsap.to(el, {
+            yPercent: -amount * 100,
+            ease: "none",
+            scrollTrigger: {
+              trigger: el.closest("section") || el,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true,
+            },
+          });
         });
-      });
+      }
 
       // Slide enter — slight overall lift
       gsap.utils.toArray<HTMLElement>(".story-slide").forEach((sec) => {

@@ -132,32 +132,10 @@ export const Infrastructure = () => {
           </div>
         </div>
 
-        {/* Layer grid */}
-        <div className="reveal-stagger grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {layers.map((l) => {
-            const Icon = l.icon;
-            return (
-              <div
-                key={l.title}
-                className="rounded-sm border border-foreground/10 bg-card/70 backdrop-blur-sm p-6 hover:border-secondary/40 hover:shadow-[0_10px_30px_-15px_hsl(215_28%_17%/0.25)] transition-all"
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <Icon className="w-5 h-5 text-secondary" />
-                  <span className="mono text-[11px] tracking-[0.3em] uppercase text-muted-foreground">
-                    {l.tag}
-                  </span>
-                </div>
-                <h4 className="font-serif text-2xl mb-1">{l.title}</h4>
-                <p className="mono text-[12px] tracking-[0.2em] uppercase text-muted-foreground/80 mb-3">
-                  {l.caption}
-                </p>
-                <p className="text-sm text-foreground/75 leading-relaxed">
-                  {l.body}
-                </p>
-              </div>
-            );
-          })}
-        </div>
+      </div>
+    </section>
+  );
+};
       </div>
     </section>
   );

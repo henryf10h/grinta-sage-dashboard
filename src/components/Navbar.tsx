@@ -1,9 +1,10 @@
 import { Link, useLocation } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
+import logo from "@/assets/grinta-logo.png";
 
 /**
  * Editorial navbar: gold hairline under a thin marble strip.
- * Mark = Greek omicron-stigma "Ⲱ" feel built from a circle + serif "H".
+ * Mark = Reflecter Labs philosopher bust.
  */
 export const Navbar = () => {
   const { pathname } = useLocation();
@@ -14,10 +15,13 @@ export const Navbar = () => {
       <div className="backdrop-blur-md bg-background/75 border-b border-secondary/30">
         <div className="mx-auto max-w-7xl flex items-center justify-between px-6 md:px-10 h-16">
           <Link to="/" className="flex items-center gap-3 group">
-            <span className="relative flex items-center justify-center w-8 h-8 rounded-full border border-secondary/60 text-secondary font-serif italic text-base shadow-[inset_0_0_8px_hsl(var(--secondary)/0.25)]">
-              H
-              <span className="absolute -inset-px rounded-full ring-1 ring-secondary/20" />
-            </span>
+            <img
+              src={logo}
+              alt="Grinta Governance"
+              width={36}
+              height={36}
+              className="w-9 h-9 object-contain select-none transition-transform group-hover:scale-105"
+            />
             <div className="flex flex-col leading-none">
               <span className="font-serif text-lg tracking-tight">
                 Grinta Governance

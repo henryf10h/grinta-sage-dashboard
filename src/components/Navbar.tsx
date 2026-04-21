@@ -48,9 +48,16 @@ export const Navbar = () => {
               <span className="font-serif text-lg tracking-tight">
                 Grinta Governance
               </span>
-              <span className="hidden sm:inline mono text-[12px] tracking-[0.3em] text-muted-foreground/90 uppercase mt-1 font-medium">
+              <a
+                href="https://reflecterlabs.xyz"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="hidden sm:inline-flex items-center gap-1.5 mono text-[12px] tracking-[0.3em] text-muted-foreground/90 hover:text-secondary uppercase mt-1 font-medium transition-colors"
+              >
                 Reflecter Labs
-              </span>
+                <ExternalLink className="w-3 h-3" />
+              </a>
             </div>
           </Link>
 

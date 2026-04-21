@@ -26,7 +26,7 @@ const Paper = () => {
       <Navbar />
       <ProgressRail total={10} />
 
-      <main className="relative z-10 pt-16">
+      <main className="relative z-10 pt-24">
         <StorySlides />
 
         <footer className="text-center text-sm text-muted-foreground py-12 italic font-serif">

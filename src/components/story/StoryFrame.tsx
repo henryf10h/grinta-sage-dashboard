@@ -37,7 +37,7 @@ export const StoryFrame = ({
       </span>
 
       <span className="absolute top-8 right-8 font-serif italic text-sm text-muted-foreground/70 select-none z-20">
-        Horos Protocol
+        Grinta Governance
       </span>
 
       <div className="relative z-10 w-full max-w-6xl mx-auto">{children}</div>

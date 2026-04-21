@@ -30,7 +30,7 @@ const Paper = () => {
         <StorySlides />
 
         <footer className="text-center text-sm text-muted-foreground py-12 italic font-serif">
-          "The unexamined protocol is not worth governing." — Reflecter Labs · Horos Protocol
+          "The unexamined protocol is not worth governing." — Reflecter Labs · Grinta Governance
         </footer>
       </main>
     </div>

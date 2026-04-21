@@ -22,7 +22,7 @@ export const GrintaIntro = () => {
         {/* LEFT — name + manifesto */}
         <div className="md:col-span-7 md:pt-8">
           <p className="reveal mono text-[14px] tracking-[0.5em] text-primary/80 uppercase mb-8">
-            Built on Horos
+            Built on Grinta Governance
           </p>
 
           <h2 className="reveal font-serif text-7xl md:text-9xl lg:text-[10rem] leading-[0.85] tracking-tight">
@@ -31,7 +31,7 @@ export const GrintaIntro = () => {
           </h2>
 
           <p className="reveal mt-8 font-serif italic text-2xl md:text-3xl text-gradient-gold leading-snug max-w-md">
-            The first stablecoin CDP governed by Horos.
+            The first stablecoin CDP governed by Grinta Governance.
           </p>
 
           <p className="reveal mt-8 text-base md:text-lg leading-[1.8] text-foreground/85 max-w-md">

@@ -23,7 +23,7 @@ const Index = () => {
               "The unexamined protocol is not worth governing."
             </span>
             <span className="mono text-[14px] tracking-[0.4em] uppercase text-muted-foreground/70">
-              Reflecter Labs · Horos Protocol
+              Reflecter Labs · Grinta Governance
             </span>
           </div>
         </footer>

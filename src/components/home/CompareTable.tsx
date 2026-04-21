@@ -100,7 +100,7 @@ export const CompareTable = () => {
               AI Advisor
             </div>
             <div className="col-span-3 px-6 py-6 font-serif text-lg text-primary border-b border-primary/30 border-l border-primary/30 bg-gradient-to-b from-primary/10 to-primary/5">
-              Grinta + Horos
+              Grinta Governance
             </div>
 
             {/* Rows */}
@@ -165,7 +165,7 @@ export const CompareTable = () => {
                 </div>
                 <div className="flex items-center justify-between pt-2 mt-2 border-t border-primary/30">
                   <span className="text-primary font-medium">
-                    Grinta + Horos
+                    Grinta Governance
                   </span>
                   <span className="inline-flex items-center gap-2 font-medium">
                     <Icon kind={row.grinta.kind} />

@@ -20,7 +20,7 @@ export const Navbar = () => {
             </span>
             <div className="flex flex-col leading-none">
               <span className="font-serif text-lg tracking-tight">
-                Horos Protocol
+                Grinta Governance
               </span>
               <span className="hidden sm:inline mono text-[11px] tracking-[0.35em] text-muted-foreground/80 uppercase mt-1">
                 Reflecter Labs

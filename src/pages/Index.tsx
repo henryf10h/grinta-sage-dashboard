@@ -13,7 +13,8 @@ const STANDARDS = [
   { label: "x402", caption: "Per-call agent payments" },
   { label: "ERC-8004", caption: "Agent registry standard" },
   { label: "TEE", caption: "Trusted execution" },
-  { label: "Cairo", caption: "On-chain enforcement" },
+  { label: "Parameters Guard", caption: "On-chain enforcement" },
+  { label: "RL small model", caption: "Specialized agents" },
 ];
 
 const Index = () => {
@@ -59,7 +60,7 @@ const Index = () => {
             {/* Standards row — gold hairline above & below */}
             <div className="reveal w-full max-w-3xl mt-16">
               <div className="h-px w-full bg-gradient-to-r from-transparent via-secondary/50 to-transparent" />
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-y-6 py-7">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-6 py-7">
                 {STANDARDS.map((s) => (
                   <div
                     key={s.label}
@@ -79,16 +80,14 @@ const Index = () => {
           </div>
         </section>
 
+        <SectionDivider label="Why this matters" />
         {/* HERO 2 — Parchment + governance failures wire */}
-        <section id="why" className="relative min-h-screen flex items-center px-6 py-24 scroll-mt-24">
+        <section id="why" className="relative min-h-screen flex items-center px-6 py-16 scroll-mt-24">
           <div className="relative w-full max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
             <div className="order-2 lg:order-1">
               <Parchment />
             </div>
             <div className="order-1 lg:order-2">
-              <p className="reveal mono text-[12px] tracking-[0.4em] uppercase text-destructive/80 mb-4 text-center lg:text-left">
-                Why this matters
-              </p>
               <h2 className="reveal font-serif text-3xl md:text-4xl leading-[1.1] tracking-tight text-foreground mb-6 text-center lg:text-left">
                 Every hour governance sleeps,
                 <br />

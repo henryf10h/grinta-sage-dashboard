@@ -41,6 +41,8 @@ const ROWS: { capability: string; trad: Cell; advisor: Cell; grinta: Cell }[] = 
   },
 ];
 
+const ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII"];
+
 const Icon = ({ kind }: { kind: Cell["kind"] }) => {
   if (kind === "yes")
     return <Check className="w-4 h-4 text-primary shrink-0" />;
@@ -52,82 +54,100 @@ const Icon = ({ kind }: { kind: Cell["kind"] }) => {
 export const CompareTable = () => {
   return (
     <section className="relative px-6 py-24 md:py-32">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-14">
-          <p className="reveal mono text-[14px] tracking-[0.4em] text-secondary uppercase mb-5">
-            Comparison
+      {/* Faint horizontal hairline pattern */}
+      <div
+        aria-hidden
+        className="absolute inset-0 pointer-events-none opacity-[0.035]"
+        style={{
+          backgroundImage:
+            "repeating-linear-gradient(0deg, transparent 0 39px, hsl(var(--foreground)) 39px 40px)",
+        }}
+      />
+
+      <div className="relative max-w-6xl mx-auto">
+        <div className="text-center mb-16">
+          <p className="reveal mono text-[14px] tracking-[0.5em] text-secondary uppercase mb-6">
+            Scorecard
           </p>
-          <h2 className="reveal font-serif text-4xl md:text-6xl tracking-tight">
-            How Grinta <span className="italic text-gradient-teal">compares</span>.
+          <h2 className="reveal font-serif text-5xl md:text-7xl tracking-tight leading-[0.95]">
+            How Grinta{" "}
+            <span className="italic text-gradient-teal">compares</span>.
           </h2>
-          <p className="reveal mt-5 text-base md:text-lg text-foreground/75 max-w-2xl mx-auto">
+          <p className="reveal mt-6 font-serif italic text-lg md:text-xl text-foreground/70 max-w-xl mx-auto">
             Bounded autonomy is not a tradeoff between safety and speed. It
             delivers both.
           </p>
         </div>
 
-        {/* Desktop table */}
-        <div className="reveal hidden md:block overflow-hidden rounded-2xl border border-border/60 bg-card/70 backdrop-blur-sm">
-          <table className="w-full text-left">
-            <thead>
-              <tr className="bg-muted/40 border-b border-border/60">
-                <th className="px-6 py-4 font-serif text-base text-foreground/70">
-                  Capability
-                </th>
-                <th className="px-6 py-4 font-serif text-base text-foreground/70">
-                  Traditional DAO
-                </th>
-                <th className="px-6 py-4 font-serif text-base text-foreground/70">
-                  AI Advisor (off-chain)
-                </th>
-                <th className="px-6 py-4 font-serif text-base text-primary border-l border-primary/30 bg-primary/5">
-                  Grinta + Horos
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {ROWS.map((row, i) => (
-                <tr
-                  key={row.capability}
-                  className={
-                    i !== ROWS.length - 1 ? "border-b border-border/40" : ""
-                  }
-                >
-                  <td className="px-6 py-4 font-medium text-sm md:text-base">
-                    {row.capability}
-                  </td>
-                  <td className="px-6 py-4 text-sm md:text-base text-foreground/75">
-                    <span className="inline-flex items-center gap-2">
-                      <Icon kind={row.trad.kind} />
-                      {row.trad.label}
-                    </span>
-                  </td>
-                  <td className="px-6 py-4 text-sm md:text-base text-foreground/75">
-                    <span className="inline-flex items-center gap-2">
-                      <Icon kind={row.advisor.kind} />
-                      {row.advisor.label}
-                    </span>
-                  </td>
-                  <td className="px-6 py-4 text-sm md:text-base font-medium border-l border-primary/30 bg-primary/5">
-                    <span className="inline-flex items-center gap-2 text-foreground">
-                      <Icon kind={row.grinta.kind} />
-                      {row.grinta.label}
-                    </span>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        {/* Desktop scorecard */}
+        <div className="reveal hidden md:block relative">
+          {/* Recommended ribbon over Grinta column */}
+          <div className="absolute -top-4 right-0 w-1/4 flex justify-center">
+            <span className="font-serif italic text-sm text-secondary bg-background px-3 py-1 border border-secondary/40 rounded-full shadow-sm">
+              Recommended
+            </span>
+          </div>
+
+          <div className="relative grid grid-cols-12 gap-0 border-y border-foreground/15">
+            {/* Column headers */}
+            <div className="col-span-3 px-4 py-6 mono text-[14px] tracking-[0.3em] uppercase text-muted-foreground border-b border-foreground/10">
+              Capability
+            </div>
+            <div className="col-span-3 px-6 py-6 font-serif text-lg text-foreground/70 border-b border-foreground/10 border-l border-foreground/10">
+              Traditional DAO
+            </div>
+            <div className="col-span-3 px-6 py-6 font-serif text-lg text-foreground/70 border-b border-foreground/10 border-l border-foreground/10">
+              AI Advisor
+            </div>
+            <div className="col-span-3 px-6 py-6 font-serif text-lg text-primary border-b border-primary/30 border-l border-primary/30 bg-gradient-to-b from-primary/10 to-primary/5">
+              Grinta + Horos
+            </div>
+
+            {/* Rows */}
+            {ROWS.map((row, i) => (
+              <div key={row.capability} className="contents group">
+                <div className="col-span-3 px-4 py-6 flex items-baseline gap-3 border-b border-foreground/10 last:border-b-0">
+                  <span className="font-serif italic text-sm text-secondary/60 w-6 shrink-0">
+                    {ROMAN[i]}
+                  </span>
+                  <span className="font-serif text-base">{row.capability}</span>
+                </div>
+                <div className="col-span-3 px-6 py-6 text-base text-foreground/75 border-b border-foreground/10 border-l border-foreground/10 last:border-b-0">
+                  <span className="inline-flex items-center gap-2">
+                    <Icon kind={row.trad.kind} />
+                    {row.trad.label}
+                  </span>
+                </div>
+                <div className="col-span-3 px-6 py-6 text-base text-foreground/75 border-b border-foreground/10 border-l border-foreground/10 last:border-b-0">
+                  <span className="inline-flex items-center gap-2">
+                    <Icon kind={row.advisor.kind} />
+                    {row.advisor.label}
+                  </span>
+                </div>
+                <div className="col-span-3 px-6 py-6 text-base font-medium border-b border-primary/20 border-l border-primary/30 bg-gradient-to-b from-primary/5 to-primary/10 last:border-b-0">
+                  <span className="inline-flex items-center gap-2 text-foreground">
+                    <Icon kind={row.grinta.kind} />
+                    {row.grinta.label}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Mobile cards */}
         <div className="md:hidden reveal-stagger space-y-4">
-          {ROWS.map((row) => (
+          {ROWS.map((row, i) => (
             <div
               key={row.capability}
-              className="rounded-xl border border-border/60 bg-card/70 p-5"
+              className="rounded-sm border border-foreground/15 bg-card/70 p-5"
             >
-              <p className="font-serif text-base mb-3">{row.capability}</p>
+              <div className="flex items-baseline gap-3 mb-3">
+                <span className="font-serif italic text-sm text-secondary/70">
+                  {ROMAN[i]}
+                </span>
+                <p className="font-serif text-base">{row.capability}</p>
+              </div>
               <div className="space-y-2 text-sm">
                 <div className="flex items-center justify-between">
                   <span className="text-muted-foreground">Traditional DAO</span>

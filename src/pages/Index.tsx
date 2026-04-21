@@ -54,8 +54,7 @@ const Index = () => {
             </h1>
 
             <p className="reveal mt-10 max-w-2xl font-serif italic text-lg md:text-xl text-foreground/75 leading-relaxed">
-              Bounded by the community on-chain. Auditable to the byte. Built
-              on the open standards that make agent-native finance possible.
+              Built on the open standards that make agent-native finance possible. Auditable to the byte.
             </p>
 
             {/* Standards row — gold hairline above & below */}

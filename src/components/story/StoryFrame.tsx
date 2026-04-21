@@ -32,11 +32,11 @@ export const StoryFrame = ({
         className
       )}
     >
-      <span className="absolute top-8 left-8 mono text-xs tracking-[0.3em] text-muted-foreground/70 select-none z-20">
+      <span className="absolute top-8 left-8 mono text-sm tracking-[0.3em] text-muted-foreground/70 select-none z-20">
         {String(index).padStart(2, "0")} / {String(total).padStart(2, "0")}
       </span>
 
-      <span className="absolute top-8 right-8 font-serif italic text-xs text-muted-foreground/70 select-none z-20">
+      <span className="absolute top-8 right-8 font-serif italic text-sm text-muted-foreground/70 select-none z-20">
         Horos Protocol
       </span>
 

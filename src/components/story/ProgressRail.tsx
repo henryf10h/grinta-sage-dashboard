@@ -32,7 +32,7 @@ export const ProgressRail = ({ total }: { total: number }) => {
           }}
         />
       </div>
-      <div className="absolute right-4 top-3 mono text-[10px] tracking-[0.3em] text-muted-foreground/70 pointer-events-auto">
+      <div className="absolute right-4 top-3 mono text-sm tracking-[0.3em] text-muted-foreground/70 pointer-events-auto">
         {String(active).padStart(2, "0")} / {String(total).padStart(2, "0")}
       </div>
     </div>

@@ -14,7 +14,7 @@ import { ExternalLink, ArrowDown } from "lucide-react";
 const TOTAL = 10;
 
 const Eyebrow = ({ children }: { children: React.ReactNode }) => (
-  <p className="reveal mono text-[11px] tracking-[0.4em] text-primary/80 uppercase mb-5">
+  <p className="reveal mono text-[14px] tracking-[0.4em] text-primary/80 uppercase mb-5">
     {children}
   </p>
 );
@@ -48,14 +48,14 @@ const Narrative = ({
   children: React.ReactNode;
 }) => (
   <div className="reveal mb-8 max-w-3xl">
-    <p className="mono text-[10px] tracking-[0.45em] text-secondary/80 uppercase mb-3">
+    <p className="mono text-[14px] tracking-[0.4em] text-secondary/80 uppercase mb-3">
       Ágora · {chapter}
     </p>
     <p className="font-serif italic text-xl md:text-2xl leading-relaxed text-foreground/90">
       {children}
     </p>
     {speaker && (
-      <p className="mono text-[10px] tracking-[0.3em] text-muted-foreground/70 mt-3 uppercase">
+      <p className="mono text-[14px] tracking-[0.3em] text-muted-foreground/70 mt-3 uppercase">
         — {speaker}
       </p>
     )}
@@ -199,7 +199,7 @@ export const StorySlides = () => {
             Parameter Guard
             <br />
             <span className="font-serif italic text-gradient-gold text-3xl md:text-4xl">
-              "Lo llamamos: Horos Protocol."
+              "We call it: Horos Protocol."
             </span>
           </Title>
           <p className="reveal text-sm text-muted-foreground mono tracking-widest">
@@ -329,7 +329,7 @@ export const StorySlides = () => {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
                 </span>
-                <span className="mono text-[10px] tracking-[0.25em] text-primary uppercase">
+                <span className="mono text-[14px] tracking-[0.25em] text-primary uppercase">
                   Live
                 </span>
               </div>
@@ -344,7 +344,7 @@ export const StorySlides = () => {
                   />
                 </div>
                 <div className="md:col-span-3 text-left">
-                  <p className="mono text-xs tracking-widest text-secondary mb-2">
+                  <p className="mono text-sm tracking-widest text-secondary mb-2">
                     GRINTA-LOOP-SHANGHAI.ONRENDER.COM
                   </p>
                   <h3 className="font-serif text-3xl md:text-4xl mb-3">
@@ -357,7 +357,7 @@ export const StorySlides = () => {
                     <ExternalLink className="w-5 h-5" />
                     Launch Live Demo
                   </div>
-                  <p className="text-xs text-muted-foreground mt-4 italic">
+                  <p className="text-sm text-muted-foreground mt-4 italic">
                     Watch the AI propose KP/KI adjustments as BTC moves. See the PDR on-chain.
                   </p>
                 </div>
@@ -422,13 +422,13 @@ export const StorySlides = () => {
                 key={p.t}
                 className="group p-5 rounded-xl border border-border/60 bg-card/70 backdrop-blur-sm hover:border-secondary/60 hover:-translate-y-1 hover:shadow-[0_10px_40px_hsl(var(--secondary)/0.2)] transition-all duration-500"
               >
-                <p className="mono text-[10px] tracking-widest text-secondary/80 mb-2">
+                <p className="mono text-sm tracking-widest text-secondary/80 mb-2">
                   {p.meta}
                 </p>
                 <h4 className="font-serif text-lg mb-1 group-hover:text-primary transition-colors">
                   {p.t}
                 </h4>
-                <p className="text-xs text-muted-foreground">{p.d}</p>
+                <p className="text-sm text-muted-foreground">{p.d}</p>
               </div>
             ))}
           </div>
@@ -468,7 +468,7 @@ export const StorySlides = () => {
               key={x.k}
               className="text-center p-4 rounded-xl border border-primary/20 bg-primary/5"
             >
-              <p className="mono text-xs tracking-widest text-primary">{x.k}</p>
+              <p className="mono text-sm tracking-widest text-primary">{x.k}</p>
               <p className="text-sm text-muted-foreground mt-1">{x.v}</p>
             </div>
           ))}
@@ -488,7 +488,7 @@ export const StorySlides = () => {
 
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           <div className="reveal p-6 rounded-2xl border border-secondary/40 bg-secondary/5">
-            <p className="mono text-xs tracking-widest text-secondary mb-3">
+            <p className="mono text-sm tracking-widest text-secondary mb-3">
               ✓ DELIVERED · HACKATHON
             </p>
             <ul className="space-y-3 text-foreground/85">
@@ -508,7 +508,7 @@ export const StorySlides = () => {
           </div>
 
           <div className="reveal p-6 rounded-2xl border border-primary/40 bg-primary/5">
-            <p className="mono text-xs tracking-widest text-primary mb-3">
+            <p className="mono text-sm tracking-widest text-primary mb-3">
               → NEXT MILESTONES
             </p>
             <ul className="space-y-3 text-foreground/85">
@@ -589,7 +589,7 @@ export const StorySlides = () => {
               alt="Cálicles plants his staff as the HOROS scroll unfurls above the Assembly"
               parallax={0.18}
             />
-            <p className="mt-6 text-center mono text-xs tracking-[0.4em] text-muted-foreground/70">
+            <p className="mt-6 text-center mono text-sm tracking-[0.4em] text-muted-foreground/70">
               REFLECTER LABS · HOROS PROTOCOL
             </p>
           </div>

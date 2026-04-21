@@ -3,6 +3,7 @@ import { useGsapReveal } from "@/hooks/useGsapReveal";
 import { ProgressRail } from "@/components/story/ProgressRail";
 import { StorySlides } from "@/components/story/StorySlides";
 import { Navbar } from "@/components/Navbar";
+import { FloatingSocialButtons } from "@/components/home/FloatingSocialButtons";
 import column from "@/assets/column.png";
 
 const Paper = () => {

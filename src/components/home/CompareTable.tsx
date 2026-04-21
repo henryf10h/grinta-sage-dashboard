@@ -1,54 +1,59 @@
-import { Check, X, Minus } from "lucide-react";
+import { Check, X } from "lucide-react";
 
-type Cell = { kind: "yes" | "no" | "partial"; label: string };
+type RiskCell = { kind: "yes" | "no"; label: string };
 
-const ROWS: { capability: string; trad: Cell; advisor: Cell; grinta: Cell }[] = [
+type Row = {
+  name: string;
+  humanRisk: RiskCell;
+  marketCap: string;
+  tvl: string;
+  maxYield: string;
+  depeg: string;
+  highlight?: boolean;
+};
+
+const ROWS: Row[] = [
   {
-    capability: "Response latency",
-    trad: { kind: "no", label: "Days" },
-    advisor: { kind: "partial", label: "Hours" },
-    grinta: { kind: "yes", label: "Block-time" },
+    name: "USDC",
+    humanRisk: { kind: "yes", label: "Yes" },
+    marketCap: "~$75.6B",
+    tvl: "High in DeFi",
+    maxYield: "6–8% APY",
+    depeg: "Yes (2023 SVB)",
   },
   {
-    capability: "On-chain enforced bounds",
-    trad: { kind: "no", label: "No" },
-    advisor: { kind: "no", label: "No" },
-    grinta: { kind: "yes", label: "Yes" },
+    name: "USDT",
+    humanRisk: { kind: "yes", label: "Yes" },
+    marketCap: "~$187B",
+    tvl: "DeFi leader",
+    maxYield: "2–6% APY",
+    depeg: "Minimal",
   },
   {
-    capability: "Model-agnostic agents",
-    trad: { kind: "no", label: "—" },
-    advisor: { kind: "partial", label: "Single model" },
-    grinta: { kind: "yes", label: "Any ERC-8004 agent" },
+    name: "DAI",
+    humanRisk: { kind: "yes", label: "Yes" },
+    marketCap: "~$5.4B",
+    tvl: "~$2.3B (RWAs)",
+    maxYield: "5–8% APY",
+    depeg: "Yes (2023 slips)",
   },
   {
-    capability: "Per-call agent payments",
-    trad: { kind: "no", label: "—" },
-    advisor: { kind: "partial", label: "Manual" },
-    grinta: { kind: "yes", label: "X402 native" },
-  },
-  {
-    capability: "Auditable decisions (PDR)",
-    trad: { kind: "partial", label: "Forum posts" },
-    advisor: { kind: "partial", label: "Off-chain logs" },
-    grinta: { kind: "yes", label: "On-chain records" },
-  },
-  {
-    capability: "Emergency stop",
-    trad: { kind: "partial", label: "Multi-sig vote" },
-    advisor: { kind: "no", label: "Manual" },
-    grinta: { kind: "yes", label: "Bounded + circuit breaker" },
+    name: "Grinta",
+    humanRisk: { kind: "no", label: "No" },
+    marketCap: "n/a (testnet)",
+    tvl: "n/a (testnet)",
+    maxYield: "Yield Bounded 8%+",
+    depeg: "None (bounded)",
+    highlight: true,
   },
 ];
 
-const ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII"];
+const ROMAN = ["I", "II", "III", "IV"];
 
-const Icon = ({ kind }: { kind: Cell["kind"] }) => {
-  if (kind === "yes")
-    return <Check className="w-4 h-4 text-primary shrink-0" />;
+const RiskIcon = ({ kind }: { kind: RiskCell["kind"] }) => {
   if (kind === "no")
-    return <X className="w-4 h-4 text-destructive/70 shrink-0" />;
-  return <Minus className="w-4 h-4 text-muted-foreground shrink-0" />;
+    return <Check className="w-4 h-4 text-primary shrink-0" />;
+  return <X className="w-4 h-4 text-destructive/70 shrink-0" />;
 };
 
 export const CompareTable = () => {
@@ -66,69 +71,91 @@ export const CompareTable = () => {
 
       <div className="relative max-w-6xl mx-auto">
         <div className="text-center mb-10">
+          <p className="reveal mono text-[12px] md:text-[13px] tracking-[0.4em] uppercase text-secondary/80 mb-4">
+            What is the market?
+          </p>
           <h2 className="reveal font-serif text-5xl md:text-7xl tracking-tight leading-[0.95]">
-            How Grinta{" "}
-            <span className="italic text-gradient-teal">compares</span>.
+            How we{" "}
+            <span className="italic text-gradient-teal">compare</span>.
           </h2>
-          <p className="reveal mt-6 font-serif italic text-lg md:text-xl text-foreground/70 max-w-xl mx-auto">
-            Bounded autonomy is not a tradeoff between safety and speed. It
-            delivers both.
+          <p className="reveal mt-6 font-serif italic text-lg md:text-xl text-black max-w-3xl mx-auto">
+            The stablecoin market has a current TAM (market capitalization) of approximately $320 billion, with Citi projections estimating a base scenario of $1.9 trillion and a bullish case of up to $4 trillion by 2030.
           </p>
         </div>
 
         {/* Desktop scorecard */}
         <div className="reveal hidden md:block relative">
-          {/* Recommended ribbon over Grinta column */}
-          <div className="absolute -top-4 right-0 w-1/4 flex justify-center">
-            <span className="font-serif italic text-sm text-secondary bg-background px-3 py-1 border border-secondary/40 rounded-full shadow-sm">
-              Recommended
-            </span>
-          </div>
-
           <div className="relative grid grid-cols-12 gap-0 border-y border-foreground/15">
             {/* Column headers */}
-            <div className="col-span-3 px-4 py-6 mono text-[14px] tracking-[0.3em] uppercase text-muted-foreground border-b border-foreground/10">
-              Capability
+            <div className="col-span-2 px-4 py-6 mono text-[13px] tracking-[0.3em] uppercase text-muted-foreground border-b border-foreground/10">
+              Stablecoin
             </div>
-            <div className="col-span-3 px-6 py-6 font-serif text-lg text-foreground/70 border-b border-foreground/10 border-l border-foreground/10">
-              Traditional DAO
+            <div className="col-span-2 px-4 py-6 mono text-[13px] tracking-[0.3em] uppercase text-muted-foreground border-b border-foreground/10 border-l border-foreground/10">
+              Human Risk
             </div>
-            <div className="col-span-3 px-6 py-6 font-serif text-lg text-foreground/70 border-b border-foreground/10 border-l border-foreground/10">
-              AI Advisor
+            <div className="col-span-2 px-4 py-6 mono text-[13px] tracking-[0.3em] uppercase text-muted-foreground border-b border-foreground/10 border-l border-foreground/10">
+              Market Cap
             </div>
-            <div className="col-span-3 px-6 py-6 font-serif text-lg text-primary border-b border-primary/30 border-l border-primary/30 bg-gradient-to-b from-primary/10 to-primary/5">
-              Grinta Governance
+            <div className="col-span-2 px-4 py-6 mono text-[13px] tracking-[0.3em] uppercase text-muted-foreground border-b border-foreground/10 border-l border-foreground/10">
+              TVL
+            </div>
+            <div className="col-span-2 px-4 py-6 mono text-[13px] tracking-[0.3em] uppercase text-muted-foreground border-b border-foreground/10 border-l border-foreground/10">
+              Max Yield
+            </div>
+            <div className="col-span-2 px-4 py-6 mono text-[13px] tracking-[0.3em] uppercase text-muted-foreground border-b border-foreground/10 border-l border-foreground/10">
+              Depeg History
             </div>
 
             {/* Rows */}
-            {ROWS.map((row, i) => (
-              <div key={row.capability} className="contents group">
-                <div className="col-span-3 px-4 py-6 flex items-baseline gap-3 border-b border-foreground/10 last:border-b-0">
-                  <span className="font-serif italic text-sm text-secondary/60 w-6 shrink-0">
-                    {ROMAN[i]}
-                  </span>
-                  <span className="font-serif text-base">{row.capability}</span>
+            {ROWS.map((row, i) => {
+              const isHL = row.highlight;
+              const cellBase =
+                "px-4 py-6 text-base border-b last:border-b-0 border-l";
+              const cellTone = isHL
+                ? "border-primary/20 border-l-primary/30 bg-gradient-to-b from-primary/5 to-primary/10 text-foreground"
+                : "border-foreground/10 border-l-foreground/10 text-foreground/75";
+
+              return (
+                <div key={row.name} className="contents group">
+                  <div
+                    className={`col-span-2 px-4 py-6 flex items-baseline gap-3 border-b last:border-b-0 ${
+                      isHL
+                        ? "border-primary/20 bg-gradient-to-b from-primary/5 to-primary/10"
+                        : "border-foreground/10"
+                    }`}
+                  >
+                    <span className="font-serif italic text-sm text-secondary/60 w-6 shrink-0">
+                      {ROMAN[i]}
+                    </span>
+                    <span
+                      className={`font-serif text-lg ${
+                        isHL ? "text-primary font-medium" : ""
+                      }`}
+                    >
+                      {row.name}
+                    </span>
+                  </div>
+                  <div className={`col-span-2 ${cellBase} ${cellTone}`}>
+                    <span className="inline-flex items-center gap-2">
+                      <RiskIcon kind={row.humanRisk.kind} />
+                      {row.humanRisk.label}
+                    </span>
+                  </div>
+                  <div className={`col-span-2 ${cellBase} ${cellTone}`}>
+                    {row.marketCap}
+                  </div>
+                  <div className={`col-span-2 ${cellBase} ${cellTone}`}>
+                    {row.tvl}
+                  </div>
+                  <div className={`col-span-2 ${cellBase} ${cellTone}`}>
+                    {row.maxYield}
+                  </div>
+                  <div className={`col-span-2 ${cellBase} ${cellTone}`}>
+                    {row.depeg}
+                  </div>
                 </div>
-                <div className="col-span-3 px-6 py-6 text-base text-foreground/75 border-b border-foreground/10 border-l border-foreground/10 last:border-b-0">
-                  <span className="inline-flex items-center gap-2">
-                    <Icon kind={row.trad.kind} />
-                    {row.trad.label}
-                  </span>
-                </div>
-                <div className="col-span-3 px-6 py-6 text-base text-foreground/75 border-b border-foreground/10 border-l border-foreground/10 last:border-b-0">
-                  <span className="inline-flex items-center gap-2">
-                    <Icon kind={row.advisor.kind} />
-                    {row.advisor.label}
-                  </span>
-                </div>
-                <div className="col-span-3 px-6 py-6 text-base font-medium border-b border-primary/20 border-l border-primary/30 bg-gradient-to-b from-primary/5 to-primary/10 last:border-b-0">
-                  <span className="inline-flex items-center gap-2 text-foreground">
-                    <Icon kind={row.grinta.kind} />
-                    {row.grinta.label}
-                  </span>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
@@ -136,38 +163,48 @@ export const CompareTable = () => {
         <div className="md:hidden reveal-stagger space-y-4">
           {ROWS.map((row, i) => (
             <div
-              key={row.capability}
-              className="rounded-sm border border-foreground/15 bg-card/70 p-5"
+              key={row.name}
+              className={`rounded-sm border p-5 ${
+                row.highlight
+                  ? "border-primary/40 bg-gradient-to-b from-primary/5 to-primary/10"
+                  : "border-foreground/15 bg-card/70"
+              }`}
             >
-              <div className="flex items-baseline gap-3 mb-3">
+              <div className="flex items-baseline gap-3 mb-4">
                 <span className="font-serif italic text-sm text-secondary/70">
                   {ROMAN[i]}
                 </span>
-                <p className="font-serif text-base">{row.capability}</p>
+                <p
+                  className={`font-serif text-lg ${
+                    row.highlight ? "text-primary font-medium" : ""
+                  }`}
+                >
+                  {row.name}
+                </p>
               </div>
               <div className="space-y-2 text-sm">
                 <div className="flex items-center justify-between">
-                  <span className="text-muted-foreground">Traditional DAO</span>
+                  <span className="text-muted-foreground">Human Risk</span>
                   <span className="inline-flex items-center gap-2">
-                    <Icon kind={row.trad.kind} />
-                    {row.trad.label}
+                    <RiskIcon kind={row.humanRisk.kind} />
+                    {row.humanRisk.label}
                   </span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-muted-foreground">AI Advisor</span>
-                  <span className="inline-flex items-center gap-2">
-                    <Icon kind={row.advisor.kind} />
-                    {row.advisor.label}
-                  </span>
+                  <span className="text-muted-foreground">Market Cap</span>
+                  <span>{row.marketCap}</span>
                 </div>
-                <div className="flex items-center justify-between pt-2 mt-2 border-t border-primary/30">
-                  <span className="text-primary font-medium">
-                    Grinta Governance
-                  </span>
-                  <span className="inline-flex items-center gap-2 font-medium">
-                    <Icon kind={row.grinta.kind} />
-                    {row.grinta.label}
-                  </span>
+                <div className="flex items-center justify-between">
+                  <span className="text-muted-foreground">TVL</span>
+                  <span>{row.tvl}</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-muted-foreground">Max Yield</span>
+                  <span>{row.maxYield}</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-muted-foreground">Depeg History</span>
+                  <span>{row.depeg}</span>
                 </div>
               </div>
             </div>

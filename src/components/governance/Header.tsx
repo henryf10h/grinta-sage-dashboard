@@ -1,3 +1,4 @@
+import { ExternalLink } from "lucide-react";
 import philosopher from "@/assets/philosopher.png";
 
 export const Header = () => {
@@ -31,9 +32,15 @@ export const Header = () => {
           </span>
           <span className="font-medium text-foreground">Starknet Sepolia</span>
         </div>
-        <p className="text-[11px] uppercase tracking-widest text-muted-foreground">
+        <a
+          href="https://reflecterlabs.xyz"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1.5 text-[11px] uppercase tracking-widest text-muted-foreground hover:text-secondary transition-colors"
+        >
           Powered by Reflecter Labs
-        </p>
+          <ExternalLink className="w-3 h-3" />
+        </a>
       </div>
     </header>
   );

@@ -1,3 +1,4 @@
+import { ExternalLink } from "lucide-react";
 import { useGsapReveal } from "@/hooks/useGsapReveal";
 import { Navbar } from "@/components/Navbar";
 import { Parchment } from "@/components/home/Parchment";
@@ -7,6 +8,7 @@ import { CompareTable } from "@/components/home/CompareTable";
 import { Reputation } from "@/components/home/Reputation";
 import { Infrastructure } from "@/components/home/Infrastructure";
 import { SectionDivider } from "@/components/home/SectionDivider";
+import { FloatingSocialButtons } from "@/components/home/FloatingSocialButtons";
 import column from "@/assets/column.png";
 
 const STANDARDS = [
@@ -43,8 +45,8 @@ const Index = () => {
         <section className="relative min-h-screen flex items-center justify-center px-6 pt-32 pb-16">
           <div className="relative w-full max-w-5xl mx-auto flex flex-col items-center justify-center text-center">
             <h1 className="reveal font-serif text-4xl md:text-6xl lg:text-[5.25rem] leading-[1.02] tracking-tight text-foreground">
-              Decentralization promised{" "}
-              <span className="italic text-gradient-gold">trust</span>.
+              The first Stablecoin{" "}
+              <span className="italic text-gradient-gold">without human risk</span>.
               <br />
               We deliver it,{" "}
               <span className="italic">governed by</span>
@@ -53,8 +55,7 @@ const Index = () => {
             </h1>
 
             <p className="reveal mt-10 max-w-2xl font-serif italic text-lg md:text-xl text-foreground/75 leading-relaxed">
-              Bounded by the community on-chain. Auditable to the byte. Built
-              on the open standards that make agent-native finance possible.
+              Built on the open standards that make agent-native finance possible. Auditable to the byte.
             </p>
 
             {/* Standards row — gold hairline above & below */}
@@ -114,16 +115,24 @@ const Index = () => {
         <Infrastructure />
 
         <footer className="relative">
-          <div className="mx-auto max-w-5xl px-6 py-16 flex flex-col items-center gap-4 border-t border-secondary/20">
+          <div className="mx-auto max-w-5xl px-6 py-24 md:py-32 pb-40 md:pb-48 flex flex-col items-center gap-4 border-t border-secondary/20">
             <span className="font-serif italic text-base text-foreground/70 text-center">
               "The unexamined protocol is not worth governing."
             </span>
-            <span className="mono text-[14px] tracking-[0.4em] uppercase text-muted-foreground/70">
+            <a
+              href="https://reflecterlabs.xyz"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 mono text-[14px] tracking-[0.4em] uppercase text-muted-foreground/70 hover:text-secondary transition-colors group"
+            >
               Reflecter Labs · Grinta Governance
-            </span>
+              <ExternalLink className="w-3.5 h-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </a>
           </div>
         </footer>
       </main>
+
+      <FloatingSocialButtons />
     </div>
   );
 };

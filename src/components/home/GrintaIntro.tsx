@@ -64,10 +64,10 @@ export const GrintaIntro = () => {
             {/* Plate */}
             <div className="relative rounded-sm bg-gradient-to-br from-card via-card to-muted/40 border border-secondary/30 shadow-[0_25px_60px_-20px_hsl(215_28%_17%/0.25)] overflow-hidden">
               <div className="px-7 py-6 border-b border-secondary/30 flex items-center justify-between">
-                <span className="mono text-[14px] tracking-[0.4em] uppercase text-secondary">
+                <span className="mono text-[15px] tracking-[0.4em] uppercase text-secondary">
                   Specimen
                 </span>
-                <span className="font-serif italic text-sm text-muted-foreground">
+                <span className="font-serif italic text-base text-muted-foreground">
                   Plate I
                 </span>
               </div>
@@ -82,16 +82,16 @@ export const GrintaIntro = () => {
                 ].map((row) => (
                   <div
                     key={row.k}
-                    className="grid grid-cols-12 gap-3 px-7 py-4 items-baseline hover:bg-secondary/5 transition-colors"
+                    className="grid grid-cols-12 gap-3 px-7 py-5 items-baseline hover:bg-secondary/5 transition-colors"
                   >
-                    <span className="col-span-5 font-serif text-base text-foreground/70">
+                    <span className="col-span-5 font-serif text-lg text-foreground/80">
                       {row.k}
                     </span>
                     <span className="col-span-7 text-right">
-                      <span className="mono text-base text-foreground font-medium">
+                      <span className="mono text-lg text-foreground font-medium">
                         {row.v}
                       </span>
-                      <span className="block mono text-[14px] text-muted-foreground/70 mt-0.5">
+                      <span className="block mono text-[15px] text-muted-foreground/80 mt-1">
                         {row.note}
                       </span>
                     </span>

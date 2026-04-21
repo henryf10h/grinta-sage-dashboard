@@ -19,7 +19,7 @@ const TOTAL = 10;
  * ────────────────────────────────────────────── */
 
 const Eyebrow = ({ children }: { children: React.ReactNode }) => (
-  <p className="reveal mono text-[12px] md:text-[13px] tracking-[0.4em] text-secondary/80 uppercase mb-5">
+  <p className="reveal mono text-[14px] md:text-[15px] tracking-[0.4em] text-secondary/80 uppercase mb-5">
     {children}
   </p>
 );
@@ -31,13 +31,13 @@ const Title = ({ children }: { children: React.ReactNode }) => (
 );
 
 const Body = ({ children }: { children: React.ReactNode }) => (
-  <p className="reveal text-base md:text-lg leading-[1.8] text-foreground/85 max-w-2xl">
+  <p className="reveal text-lg md:text-xl leading-[1.8] text-foreground/85 max-w-2xl">
     {children}
   </p>
 );
 
 const GoldQuote = ({ children }: { children: React.ReactNode }) => (
-  <blockquote className="reveal font-serif italic text-xl md:text-2xl leading-snug text-gradient-gold max-w-3xl border-l border-secondary/40 pl-6 my-8">
+  <blockquote className="reveal font-serif italic text-2xl md:text-3xl leading-snug text-gradient-gold max-w-3xl border-l border-secondary/40 pl-6 my-8">
     "{children}"
   </blockquote>
 );
@@ -52,14 +52,14 @@ const Narrative = ({
   children: React.ReactNode;
 }) => (
   <div className="reveal mb-8 max-w-2xl">
-    <p className="mono text-[12px] md:text-[13px] tracking-[0.4em] text-primary/80 uppercase mb-3">
+    <p className="mono text-[14px] md:text-[15px] tracking-[0.4em] text-primary/80 uppercase mb-3">
       Ágora · {chapter}
     </p>
-    <p className="font-serif italic text-lg md:text-xl leading-relaxed text-foreground/85">
+    <p className="font-serif italic text-xl md:text-2xl leading-relaxed text-foreground/90">
       {children}
     </p>
     {speaker && (
-      <p className="mono text-[11px] md:text-[12px] tracking-[0.3em] text-muted-foreground/70 mt-3 uppercase">
+      <p className="mono text-[13px] md:text-[14px] tracking-[0.3em] text-muted-foreground/80 mt-3 uppercase">
         — {speaker}
       </p>
     )}

@@ -54,7 +54,7 @@ const Index = () => {
               <span className="font-semibold">specialized autonomous agents</span>.
             </h1>
 
-            <p className="reveal mt-10 max-w-2xl font-serif italic text-lg md:text-xl text-foreground/75 leading-relaxed">
+            <p className="reveal mt-10 max-w-2xl font-serif italic text-xl md:text-2xl text-foreground/85 leading-relaxed">
               Built on the open standards that make agent-native finance possible. Auditable to the byte.
             </p>
 

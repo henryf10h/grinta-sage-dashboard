@@ -13,14 +13,14 @@ export const Navbar = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-[60]">
       <div className="backdrop-blur-md bg-background/75 border-b border-secondary/30">
-        <div className="mx-auto max-w-7xl flex items-center justify-between px-6 md:px-10 h-16">
+        <div className="mx-auto max-w-7xl flex items-center justify-between px-6 md:px-10 h-24">
           <Link to="/" className="flex items-center gap-3 group">
             <img
               src={logo}
               alt="Grinta Governance"
-              width={36}
-              height={36}
-              className="w-9 h-9 object-contain select-none transition-transform group-hover:scale-105"
+              width={72}
+              height={72}
+              className="w-[72px] h-[72px] object-contain select-none transition-transform group-hover:scale-105"
             />
             <div className="flex flex-col leading-none">
               <span className="font-serif text-lg tracking-tight">

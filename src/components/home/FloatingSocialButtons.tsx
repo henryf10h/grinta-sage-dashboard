@@ -42,17 +42,17 @@ export const FloatingSocialButtons = () => {
         </span>
       </a>
 
-      {/* Launch Live Demo - Gold Style (darker, positioned right) */}
+      {/* Launch Live Demo - Same style as others, gold icon */}
       <a
         href="https://grinta-loop-shanghai.onrender.com/"
         target="_blank"
         rel="noopener noreferrer"
-        className="group flex items-center gap-2.5 px-5 py-3 bg-gradient-to-r from-[#8B6914] via-[#A67C00] to-[#7A5C0A] rounded-full shadow-2xl shadow-black/20 hover:shadow-[0_0_30px_-5px_rgba(166,124,0,0.4)] hover:scale-105 transition-all duration-300"
+        className="group flex items-center gap-2.5 px-5 py-3 bg-background/90 backdrop-blur-xl border border-secondary rounded-full shadow-2xl shadow-black/20 hover:shadow-[0_0_30px_-5px_hsl(var(--secondary)/0.4)] hover:border-secondary hover:scale-105 transition-all duration-300"
       >
-        <span className="flex items-center justify-center w-8 h-8 rounded-full bg-white/15 text-white group-hover:bg-white/25 transition-colors duration-300">
+        <span className="flex items-center justify-center w-8 h-8 rounded-full bg-[#C9A227] text-white group-hover:bg-[#D4AF37] transition-colors duration-300">
           <ExternalLink className="w-4 h-4" />
         </span>
-        <span className="font-medium text-sm text-white group-hover:text-white">
+        <span className="font-medium text-sm text-foreground/90 group-hover:text-foreground">
           Launch Live Demo
         </span>
       </a>

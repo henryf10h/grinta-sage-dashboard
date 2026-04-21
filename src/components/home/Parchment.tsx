@@ -61,11 +61,11 @@ export const Parchment = () => {
         {/* Content */}
         <div className="relative">
           <div className="reveal flex items-center justify-center gap-4 mb-7">
-            <span className="flex-1 h-px bg-secondary/40" />
-            <span className="mono text-[14px] tracking-[0.5em] text-secondary uppercase">
+            <span className="flex-1 h-px bg-gold-soft/60" />
+            <span className="mono text-[14px] tracking-[0.45em] text-secondary uppercase font-medium">
               Reflecter Labs
             </span>
-            <span className="flex-1 h-px bg-secondary/40" />
+            <span className="flex-1 h-px bg-gold-soft/60" />
           </div>
 
           <h1 className="reveal font-serif text-[2.25rem] md:text-5xl lg:text-[3.4rem] leading-[1.05] tracking-tight text-center text-foreground">
@@ -75,8 +75,8 @@ export const Parchment = () => {
             <span className="italic text-gradient-gold">trust</span>.
           </h1>
 
-          <p className="reveal mt-7 text-[15px] leading-[1.8] text-foreground/85 text-center">
-            <span className="font-serif text-secondary text-[1.4em] leading-none align-baseline">
+          <p className="reveal mt-7 text-[15px] leading-[1.85] text-foreground/85 text-center">
+            <span className="font-serif text-gold-soft text-[1.5em] leading-none align-baseline">
               D
             </span>
             AOs lose millions to governance latency. Grinta Governance lets
@@ -84,14 +84,14 @@ export const Parchment = () => {
             within sacred limits the community sets on-chain.
           </p>
 
-          <div className="reveal mt-7 mono text-[13px] tracking-[0.3em] uppercase text-foreground/65 text-center">
+          <div className="reveal mt-7 mono text-[13px] tracking-[0.3em] uppercase text-foreground/70 font-medium text-center">
             <span className="inline-flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
               <span>On-chain</span>
-              <span className="text-secondary/50">·</span>
+              <span className="text-gold-soft/70">·</span>
               <span>Model-agnostic</span>
-              <span className="text-secondary/50">·</span>
+              <span className="text-gold-soft/70">·</span>
               <span>ERC-8004</span>
-              <span className="text-secondary/50">·</span>
+              <span className="text-gold-soft/70">·</span>
               <span>Audited</span>
             </span>
           </div>

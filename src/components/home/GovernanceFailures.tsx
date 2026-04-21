@@ -115,11 +115,11 @@ export const GovernanceFailures = () => {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-destructive opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-destructive" />
             </span>
-            <span className="mono text-[12px] tracking-[0.3em] uppercase text-destructive">
+            <span className="mono text-[13px] tracking-[0.28em] uppercase text-destructive font-medium">
               The cost of slow governance
             </span>
           </div>
-          <span className="mono text-[12px] tracking-[0.25em] uppercase text-muted-foreground">
+          <span className="mono text-[13px] tracking-[0.22em] uppercase text-muted-foreground font-medium">
             Wire · {String(active + 1).padStart(2, "0")}/{HEADLINES.length}
           </span>
         </div>
@@ -129,28 +129,28 @@ export const GovernanceFailures = () => {
           key={active}
           className="px-6 md:px-8 py-7 min-h-[260px] animate-fade-in-up"
         >
-          <div className="flex items-center gap-3 mb-4">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mb-4">
             <span
-              className={`inline-flex items-center gap-1.5 mono text-[12px] tracking-[0.25em] uppercase ${TAG_META[headline.tag].color}`}
+              className={`inline-flex items-center gap-1.5 mono text-[13px] tracking-[0.22em] uppercase font-medium ${TAG_META[headline.tag].color}`}
             >
               <Icon className="w-3.5 h-3.5" />
               {TAG_META[headline.tag].label}
             </span>
             <span className="text-foreground/30">·</span>
-            <span className="mono text-[12px] tracking-[0.2em] uppercase text-muted-foreground">
+            <span className="mono text-[13px] tracking-[0.18em] uppercase text-muted-foreground font-medium">
               {headline.date}
             </span>
             <span className="text-foreground/30">·</span>
-            <span className="mono text-[12px] tracking-[0.2em] uppercase text-muted-foreground">
+            <span className="mono text-[13px] tracking-[0.18em] uppercase text-muted-foreground font-medium">
               {headline.source}
             </span>
           </div>
 
-          <h3 className="font-serif text-2xl md:text-[1.7rem] leading-[1.15] text-foreground mb-3">
+          <h3 className="font-serif text-2xl md:text-[1.7rem] leading-[1.2] text-foreground mb-3">
             {headline.title}
           </h3>
 
-          <p className="text-[14px] leading-[1.7] text-foreground/75">
+          <p className="text-[14.5px] leading-[1.75] text-foreground/80">
             {headline.body}
           </p>
 

@@ -13,7 +13,7 @@ import column from "@/assets/column.png";
 
 const STANDARDS = [
   { label: "x402", caption: "Per-call agent payments" },
-  { label: "ERC-8004", caption: "Agent registry standard" },
+  { label: "ERC-8004", caption: "Immutable Trust Rep" },
   { label: "Parameters Guard", caption: "On-chain enforcement" },
   { label: "RL small model", caption: "Specialized agents" },
   { label: "TEE", caption: "Trusted Execution Environment" },

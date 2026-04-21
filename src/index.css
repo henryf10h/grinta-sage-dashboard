@@ -158,6 +158,13 @@
     background-clip: text;
     color: transparent;
   }
+  /* Decorative-only soft gold (hairlines, ornaments) — NOT for body text */
+  .text-gold-soft {
+    color: hsl(var(--secondary-soft));
+  }
+  .bg-gold-soft {
+    background-color: hsl(var(--secondary-soft));
+  }
 }
 
 @keyframes pulse-glow {

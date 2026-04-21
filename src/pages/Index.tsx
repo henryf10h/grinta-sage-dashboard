@@ -1,3 +1,4 @@
+import { ExternalLink } from "lucide-react";
 import { useGsapReveal } from "@/hooks/useGsapReveal";
 import { Navbar } from "@/components/Navbar";
 import { Parchment } from "@/components/home/Parchment";

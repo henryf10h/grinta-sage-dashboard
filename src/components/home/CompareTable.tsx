@@ -79,7 +79,7 @@ export const CompareTable = () => {
             <span className="italic text-gradient-teal">compare</span>.
           </h2>
           <p className="reveal mt-6 font-serif italic text-lg md:text-xl text-black max-w-3xl mx-auto">
-            El mercado de stablecoins tiene un TAM (capitalización de mercado) actual aproximado de 320 mil millones de dólares, con proyecciones de Citi que estiman un escenario base de 1,9 billones de dólares y un alcista de hasta 4 billones de dólares para 2030.
+            The stablecoin market has a current TAM (market capitalization) of approximately $320 billion, with Citi projections estimating a base scenario of $1.9 trillion and a bullish case of up to $4 trillion by 2030.
           </p>
         </div>
 

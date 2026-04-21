@@ -7,6 +7,7 @@ import { CompareTable } from "@/components/home/CompareTable";
 import { Reputation } from "@/components/home/Reputation";
 import { Infrastructure } from "@/components/home/Infrastructure";
 import { SectionDivider } from "@/components/home/SectionDivider";
+import { FloatingSocialButtons } from "@/components/home/FloatingSocialButtons";
 import column from "@/assets/column.png";
 
 const STANDARDS = [
@@ -124,6 +125,8 @@ const Index = () => {
           </div>
         </footer>
       </main>
+
+      <FloatingSocialButtons />
     </div>
   );
 };

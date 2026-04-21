@@ -9,7 +9,7 @@ export const Parchment = () => {
       <div className="mx-auto h-2.5 w-[105%] -ml-[2.5%] rounded-full bg-gradient-to-r from-secondary/40 via-secondary/80 to-secondary/40 shadow-[0_4px_16px_hsl(var(--secondary)/0.35)]" />
 
       <div
-        className="relative px-7 md:px-10 py-12 md:py-16 border-x border-secondary/15"
+        className="relative px-7 md:px-10 py-8 md:py-10 border-x border-secondary/15"
         style={{
           background:
             "linear-gradient(180deg, hsl(40 40% 96% / 0.55) 0%, hsl(40 33% 91% / 0.55) 60%, hsl(40 30% 86% / 0.55) 100%)",
@@ -76,19 +76,7 @@ export const Parchment = () => {
             <span className="italic text-gradient-gold">on-chain</span>.
           </p>
 
-          <div className="reveal mt-7 mono text-[13px] tracking-[0.3em] uppercase text-foreground/70 font-medium text-center">
-            <span className="inline-flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
-              <span>On-chain</span>
-              <span className="text-gold-soft/70">·</span>
-              <span>Model-agnostic</span>
-              <span className="text-gold-soft/70">·</span>
-              <span>ERC-8004</span>
-              <span className="text-gold-soft/70">·</span>
-              <span>Audited</span>
-            </span>
-          </div>
-
-          <div className="mt-9 flex justify-center">
+          <div className="mt-7 flex justify-center">
             <div className="relative w-11 h-11 rounded-full bg-gradient-to-br from-secondary via-secondary/80 to-secondary/60 shadow-[0_6px_16px_hsl(var(--secondary)/0.4),inset_0_-3px_8px_hsl(0_0%_0%/0.18)] flex items-center justify-center">
               <span className="font-serif italic text-secondary-foreground text-lg">
                 ὅ

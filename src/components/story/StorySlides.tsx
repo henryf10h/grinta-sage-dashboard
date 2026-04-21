@@ -31,7 +31,7 @@ const Title = ({ children }: { children: React.ReactNode }) => (
 );
 
 const Body = ({ children }: { children: React.ReactNode }) => (
-  <p className="reveal text-lg md:text-xl leading-[1.8] text-foreground/85 max-w-2xl">
+  <p className="reveal text-lg md:text-xl leading-[1.8] text-foreground/85 max-w-2xl mx-auto">
     {children}
   </p>
 );
@@ -51,7 +51,7 @@ const Narrative = ({
   speaker?: string;
   children: React.ReactNode;
 }) => (
-  <div className="reveal mb-8 max-w-2xl">
+  <div className="reveal mb-8 max-w-2xl mx-auto">
     <p className="mono text-[14px] md:text-[15px] tracking-[0.4em] text-primary/80 uppercase mb-3">
       Ágora · {chapter}
     </p>

@@ -13,20 +13,14 @@ import { ExternalLink, ArrowDown } from "lucide-react";
 
 const TOTAL = 10;
 
-const GoldQuote = ({ children }: { children: React.ReactNode }) => (
-  <blockquote className="reveal font-serif italic text-2xl md:text-3xl lg:text-4xl leading-snug text-secondary max-w-4xl border-l-2 border-secondary/60 pl-6 my-8">
-    "{children}"
-  </blockquote>
-);
-
 const Eyebrow = ({ children }: { children: React.ReactNode }) => (
-  <p className="reveal mono text-[11px] tracking-[0.4em] text-primary/80 uppercase mb-6">
+  <p className="reveal mono text-[11px] tracking-[0.4em] text-primary/80 uppercase mb-5">
     {children}
   </p>
 );
 
 const Title = ({ children }: { children: React.ReactNode }) => (
-  <h2 className="reveal font-serif text-5xl md:text-7xl lg:text-[5.5rem] leading-[1.05] tracking-tight mb-6">
+  <h2 className="reveal font-serif text-4xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight mb-6">
     {children}
   </h2>
 );
@@ -37,14 +31,58 @@ const Body = ({ children }: { children: React.ReactNode }) => (
   </p>
 );
 
-const VisualFrame = ({ src, alt, className = "" }: { src: string; alt: string; className?: string }) => (
-  <div className={`reveal-scale relative ${className}`}>
-    <div className="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 blur-2xl" />
+const GoldQuote = ({ children }: { children: React.ReactNode }) => (
+  <blockquote className="reveal font-serif italic text-2xl md:text-3xl leading-snug text-secondary max-w-4xl border-l-2 border-secondary/60 pl-6 my-8">
+    "{children}"
+  </blockquote>
+);
+
+/** The Calicles narrative beat — now the lead-in of every slide, not hidden in a corner. */
+const Narrative = ({
+  chapter,
+  speaker,
+  children,
+}: {
+  chapter: string;
+  speaker?: string;
+  children: React.ReactNode;
+}) => (
+  <div className="reveal mb-8 max-w-3xl">
+    <p className="mono text-[10px] tracking-[0.45em] text-secondary/80 uppercase mb-3">
+      Ágora · {chapter}
+    </p>
+    <p className="font-serif italic text-xl md:text-2xl leading-relaxed text-foreground/90">
+      {children}
+    </p>
+    {speaker && (
+      <p className="mono text-[10px] tracking-[0.3em] text-muted-foreground/70 mt-3 uppercase">
+        — {speaker}
+      </p>
+    )}
+  </div>
+);
+
+/** Parallax illustration with bold Tartakovsky framing — no fluffy gradient halo. */
+const ParallaxArt = ({
+  src,
+  alt,
+  parallax = 0.18,
+  className = "",
+}: {
+  src: string;
+  alt: string;
+  parallax?: number;
+  className?: string;
+}) => (
+  <div
+    data-parallax={parallax}
+    className={`reveal-scale relative overflow-hidden rounded-2xl border border-foreground/10 shadow-[0_30px_80px_-20px_rgba(20,40,50,0.35)] ${className}`}
+  >
     <img
       src={src}
       alt={alt}
       loading="lazy"
-      className="w-full h-auto object-contain drop-shadow-[0_20px_60px_rgba(60,80,90,0.18)]"
+      className="w-full h-full object-cover"
     />
   </div>
 );
@@ -56,20 +94,19 @@ export const StorySlides = () => {
 
   return (
     <>
-      {/* SLIDE 1 — TRAUMA */}
-      <StoryFrame
-        id="slide-1"
-        index={1}
-        total={TOTAL}
-        story='Cálicles llega al Ágora con las manos manchadas de sal y sangre. "¡Nuestras leyes nos hundieron!"'
-      >
+      {/* SLIDE 1 — TRAUMA · Cálicles arrives */}
+      <StoryFrame id="slide-1" index={1} total={TOTAL}>
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <Eyebrow>I · Trauma</Eyebrow>
+            <Narrative chapter="01 · The Return" speaker="Cálicles, strategos">
+              I came back from the storm with salt and blood on my hands. I crossed the
+              Agora and shouted to anyone who would listen: <span className="not-italic text-foreground">"Our laws sank us."</span>
+            </Narrative>
             <Title>
               March 12, 2020.
               <br />
-              <span className="text-gradient-teal">ETH fell 43%</span> in 24 hours.
+              <span className="text-gradient-teal">ETH fell 43%</span> in a day.
             </Title>
             <Body>
               MakerDAO had an active proposal to adjust liquidation parameters. It took
@@ -77,67 +114,57 @@ export const StorySlides = () => {
             </Body>
             <GoldQuote>The protocol worked exactly as designed. The design was broken.</GoldQuote>
           </div>
-          <div data-parallax="0.1">
-            <VisualFrame src={slide1} alt="Cracked marble slab with blood drop" />
-          </div>
+          <ParallaxArt src={slide1} alt="Cálicles returns to the Agora at dawn" parallax={0.12} />
         </div>
       </StoryFrame>
 
-      {/* SLIDE 2 — DIAGNOSIS */}
-      <StoryFrame
-        id="slide-2"
-        index={2}
-        total={TOTAL}
-        story='Cálicles busca a su maestro Tales de Mileto. "Votamos cada parámetro… cuando el mar cambia en minutos, nosotros votamos en días. La latencia nos mata."'
-      >
+      {/* SLIDE 2 — DIAGNOSIS · Cálicles meets Thales */}
+      <StoryFrame id="slide-2" index={2} total={TOTAL}>
         <div className="grid md:grid-cols-5 gap-12 items-center">
-          <div data-parallax="0.15" className="md:col-span-2 order-2 md:order-1">
-            <VisualFrame src={slide2} alt="Marble hourglass with golden sand" />
-          </div>
+          <ParallaxArt
+            src={slide2}
+            alt="Cálicles kneels before Thales beside a marble hourglass"
+            parallax={0.2}
+            className="md:col-span-2 order-2 md:order-1"
+          />
           <div className="md:col-span-3 order-1 md:order-2">
             <Eyebrow>II · The Structural Flaw</Eyebrow>
+            <Narrative chapter="02 · The Master" speaker="Cálicles to Thales of Miletus">
+              We vote on every parameter — sails, oars, watchmen. When the sea changes in
+              minutes, we vote in days. <span className="not-italic text-foreground">The latency kills us.</span>
+            </Narrative>
             <Title>Latency Kills.</Title>
             <Body>
               DeFi governance suffers from a fatal latency gap. Markets move in seconds.
               Parameter adjustments take days. When BTC crashes 20% in an hour, you need to
-              adjust collateral ratios <em>now</em>. But a governance proposal requires
-              drafting → forum discussion → quorum → timelock → execution.
+              act <em>now</em>. But a proposal still requires drafting → forum discussion →
+              quorum → timelock → execution.
               <br />
               <br />
               <span className="text-foreground">Days. While users are liquidated.</span>
             </Body>
-            <GoldQuote>
-              The bottleneck isn't intelligence. It's the infrastructure of decision-making.
-            </GoldQuote>
           </div>
         </div>
       </StoryFrame>
 
-      {/* SLIDE 3 — AHA */}
-      <StoryFrame
-        id="slide-3"
-        index={3}
-        total={TOTAL}
-        story='Tales traza un círculo. "¿Y si la Asamblea votara las reglas del juego? El demos vota la Constitución. Un autómata ejecuta dentro de esos límites."'
-      >
+      {/* SLIDE 3 — INSIGHT · Thales draws the circle */}
+      <StoryFrame id="slide-3" index={3} total={TOTAL}>
         <div className="grid md:grid-cols-5 gap-12 items-center">
           <div className="md:col-span-3">
             <Eyebrow>III · The Insight</Eyebrow>
+            <Narrative chapter="03 · The Circle" speaker="Thales of Miletus">
+              Then let the Assembly vote on the rules of the game. Not <span className="not-italic">"how many oars?"</span> — but <span className="not-italic">"oars between 50 and 200, change no more than ten per hour."</span> The demos votes the constitution. An automaton executes within those limits.
+            </Narrative>
             <Title>
-              What if the DAO voted on
+              Vote on <span className="italic text-gradient-gold">policies</span>,
               <br />
-              <span className="italic text-gradient-gold">policies</span>, not parameters?
+              not parameters.
             </Title>
             <Body>
-              Not <span className="mono text-base">"Set fee to 0.05%."</span> But:
-              <br />
+              Not <span className="mono text-base">"Set fee to 0.05%."</span> But:{" "}
               <span className="font-serif italic text-foreground text-2xl">
-                "Fee may range from 0.01% to 1.00%. Max change per update: 0.10%. Cooldown: 60s."
+                "Fee may range 0.01–1.00%. Max change per update: 0.10%. Cooldown: 60s."
               </span>
-              <br />
-              <br />
-              The DAO defines the playing field. An autonomous agent plays within it —
-              continuously, in real time, on every block.
             </Body>
             <div className="reveal mt-8 flex flex-wrap gap-2">
               {["Uniswap", "Aave", "Ekubo", "Flaunch", "Any protocol"].map((p) => (
@@ -150,25 +177,28 @@ export const StorySlides = () => {
               ))}
             </div>
           </div>
-          <div data-parallax="0.2" className="md:col-span-2">
-            <VisualFrame src={slide3} alt="Owl perched on Ionic marble column" />
-          </div>
+          <ParallaxArt
+            src={slide3}
+            alt="Thales draws a glowing circle, an owl watches from the column"
+            parallax={0.22}
+            className="md:col-span-2"
+          />
         </div>
       </StoryFrame>
 
-      {/* SLIDE 4 — MECHANISM */}
-      <StoryFrame
-        id="slide-4"
-        index={4}
-        total={TOTAL}
-        story='Cálicles esculpe tres losas: límites, delta máximo, enfriamiento. "Lo llamamos: Horos Protocol — la ley que no puede ser cruzada."'
-      >
-        <div className="text-center mb-12">
+      {/* SLIDE 4 — MECHANISM · Cálicles carves three slabs */}
+      <StoryFrame id="slide-4" index={4} total={TOTAL}>
+        <div className="text-center mb-10 max-w-4xl mx-auto">
           <Eyebrow>IV · Mechanism</Eyebrow>
+          <Narrative chapter="04 · Three Slabs" speaker="Cálicles, hammer in hand">
+            I carved three slabs of marble: the bounds of the parameter, the maximum delta,
+            the cooldown. The Kybernetes proposes — the marble contract validates. We call it
+            <span className="not-italic text-foreground"> Horos Protocol</span> — the law that cannot be crossed.
+          </Narrative>
           <Title>
             Parameter Guard
             <br />
-            <span className="font-serif italic text-gradient-gold text-4xl md:text-5xl">
+            <span className="font-serif italic text-gradient-gold text-3xl md:text-4xl">
               "Lo llamamos: Horos Protocol."
             </span>
           </Title>
@@ -177,61 +207,63 @@ export const StorySlides = () => {
           </p>
         </div>
 
-        <div className="reveal-stagger grid md:grid-cols-3 gap-6">
-          {[
-            {
-              n: "I",
-              t: "Protocols Define Policies",
-              d: "Allowed parameter range, max change per update, cooldown, emergency stop.",
-            },
-            {
-              n: "II",
-              t: "Agents Execute Within Bounds",
-              d: "Registered via ERC-8004, compete to propose, paid via X402.",
-            },
-            {
-              n: "III",
-              t: "Contracts Enforce Limits",
-              d: "Validates bounds, delta, cooldown, records PDR on-chain.",
-            },
-          ].map((c) => (
-            <div
-              key={c.n}
-              className="group relative p-8 rounded-2xl border border-primary/20 bg-card/60 backdrop-blur-md transition-all duration-500 hover:border-primary/60 hover:shadow-[0_0_40px_hsl(var(--primary)/0.25)] hover:-translate-y-1"
-            >
-              <div className="font-serif text-5xl text-primary/30 group-hover:text-primary/70 transition-colors mb-4">
-                {c.n}
-              </div>
-              <h3 className="font-serif text-2xl mb-3">{c.t}</h3>
-              <p className="text-muted-foreground leading-relaxed">{c.d}</p>
-              <div className="absolute inset-0 rounded-2xl pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
-            </div>
-          ))}
-        </div>
-
-        <div data-parallax="0.08" className="mt-12 reveal-scale">
-          <img
+        <div className="grid lg:grid-cols-5 gap-8 items-center">
+          <ParallaxArt
             src={slide4}
-            alt="Three engraved marble tablets"
-            loading="lazy"
-            className="w-full max-w-3xl mx-auto opacity-90 drop-shadow-2xl"
+            alt="Cálicles carves three monumental marble tablets"
+            parallax={0.15}
+            className="lg:col-span-2"
           />
+
+          <div className="reveal-stagger lg:col-span-3 grid gap-4">
+            {[
+              {
+                n: "I",
+                t: "Protocols Define Policies",
+                d: "Allowed parameter range, max change per update, cooldown, emergency stop.",
+              },
+              {
+                n: "II",
+                t: "Agents Execute Within Bounds",
+                d: "Registered via ERC-8004, compete to propose, paid via X402.",
+              },
+              {
+                n: "III",
+                t: "Contracts Enforce Limits",
+                d: "Validates bounds, delta, cooldown, records PDR on-chain.",
+              },
+            ].map((c) => (
+              <div
+                key={c.n}
+                className="group relative p-6 rounded-2xl border border-primary/20 bg-card/60 backdrop-blur-md transition-all duration-500 hover:border-primary/60 hover:shadow-[0_0_40px_hsl(var(--primary)/0.25)] hover:-translate-y-1 flex gap-5 items-start"
+              >
+                <div className="font-serif text-5xl text-primary/30 group-hover:text-primary/70 transition-colors leading-none">
+                  {c.n}
+                </div>
+                <div>
+                  <h3 className="font-serif text-2xl mb-2">{c.t}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{c.d}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </StoryFrame>
 
-      {/* SLIDE 5 — REFRAME */}
-      <StoryFrame
-        id="slide-5"
-        index={5}
-        total={TOTAL}
-        story='Un anciano objeta: "Eso es menos libertad". Tales responde: "Un barco sin muros se hunde. Las restricciones crean seguridad."'
-      >
+      {/* SLIDE 5 — REFRAME · The elder objects */}
+      <StoryFrame id="slide-5" index={5} total={TOTAL}>
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div data-parallax="0.12">
-            <VisualFrame src={slide5} alt="Marble scales of justice" />
-          </div>
+          <ParallaxArt
+            src={slide5}
+            alt="Golden scale weighing an unwalled ship against a fortified one"
+            parallax={0.18}
+          />
           <div>
             <Eyebrow>V · Reframe</Eyebrow>
+            <Narrative chapter="05 · The Elder's Doubt" speaker="An old citizen → Thales replies">
+              <span className="not-italic">"That is less freedom,"</span> the elder said. Thales answered:
+              <span className="not-italic text-foreground"> "A ship without walls sinks. Constraints create safety."</span>
+            </Narrative>
             <Title>More secure than traditional governance.</Title>
             <div className="reveal-stagger space-y-3 mt-6">
               {[
@@ -264,24 +296,23 @@ export const StorySlides = () => {
         </div>
       </StoryFrame>
 
-      {/* SLIDE 6 — DEMO */}
-      <StoryFrame
-        id="slide-6"
-        index={6}
-        total={TOTAL}
-        story='Cálicles muestra un reloj de agua conectado a un timón automático. El pueblo aplaude. Hoy ese timón está aquí.'
-      >
-        <div className="text-center mb-10">
+      {/* SLIDE 6 — DEMO · Cálicles unveils the water-clock */}
+      <StoryFrame id="slide-6" index={6} total={TOTAL}>
+        <div className="text-center mb-10 max-w-4xl mx-auto">
           <Eyebrow>VI · Witness</Eyebrow>
+          <Narrative chapter="06 · The Harbor" speaker="Cálicles, before the Assembly">
+            I led the Assembly to the harbor. I showed them a water-clock joined to an
+            automatic rudder. The trireme steered itself. The people applauded.
+            <span className="not-italic text-foreground"> Today that rudder is here.</span>
+          </Narrative>
           <Title>
             Witness the Governor
             <br />
             <span className="text-gradient-teal">in action.</span>
           </Title>
           <Body>
-            We've already built it. A live AI agent adjusting parameters on Starknet
-            Sepolia — in real time, within bounds set by the DAO. No mockup. No simulation.
-            Real inference. Real execution.
+            Real inference. Real execution. A live AI agent adjusting parameters on Starknet
+            Sepolia — within bounds set by the DAO. No mockup.
           </Body>
         </div>
 
@@ -292,8 +323,7 @@ export const StorySlides = () => {
             rel="noopener noreferrer"
             className="group relative block p-1 rounded-3xl bg-gradient-to-br from-primary/40 via-secondary/30 to-primary/40 transition-transform duration-500 hover:-translate-y-1"
           >
-            <div className="relative rounded-3xl bg-card/90 backdrop-blur-xl p-8 md:p-12 border border-primary/30 overflow-hidden">
-              {/* LIVE badge */}
+            <div className="relative rounded-3xl bg-card/90 backdrop-blur-xl p-8 md:p-10 border border-primary/30 overflow-hidden">
               <div className="absolute top-6 right-6 flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/15 border border-primary/40">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
@@ -305,12 +335,12 @@ export const StorySlides = () => {
               </div>
 
               <div className="grid md:grid-cols-5 gap-8 items-center">
-                <div className="md:col-span-2">
+                <div data-parallax="0.1" className="md:col-span-2">
                   <img
                     src={slide6}
-                    alt="Marble water-clock connected to a ship's rudder"
+                    alt="Cálicles unveils the water-clock connected to a self-steering trireme"
                     loading="lazy"
-                    className="w-full max-w-[260px] mx-auto"
+                    className="w-full rounded-2xl border border-foreground/10 shadow-2xl"
                   />
                 </div>
                 <div className="md:col-span-3 text-left">
@@ -328,111 +358,105 @@ export const StorySlides = () => {
                     Launch Live Demo
                   </div>
                   <p className="text-xs text-muted-foreground mt-4 italic">
-                    Watch the AI propose KP/KI adjustments as BTC price moves. See the PDR on-chain.
+                    Watch the AI propose KP/KI adjustments as BTC moves. See the PDR on-chain.
                   </p>
                 </div>
               </div>
             </div>
           </a>
         </div>
-
-        <div className="reveal mt-10 max-w-3xl mx-auto">
-          <GoldQuote>
-            Cálicles lleva a la Asamblea al puerto. Hoy ese timón automático está aquí.
-          </GoldQuote>
-        </div>
       </StoryFrame>
 
-      {/* SLIDE 7 — EVIDENCE */}
-      <StoryFrame
-        id="slide-7"
-        index={7}
-        total={TOTAL}
-        story='Tales despliega papiros con evidencia de Mileto y Siracusa. "El vacío está en el mar: ningún gobierno usa autómatas para flotas."'
-      >
-        <div className="text-center mb-12">
+      {/* SLIDE 7 — EVIDENCE · Thales unfurls scrolls */}
+      <StoryFrame id="slide-7" index={7} total={TOTAL}>
+        <div className="text-center mb-10 max-w-4xl mx-auto">
           <Eyebrow>VII · Evidence</Eyebrow>
+          <Narrative chapter="07 · The Library" speaker="Thales unfurling scrolls">
+            In Miletus they used this for granaries. In Syracuse, for aqueducts.
+            <span className="not-italic text-foreground"> The void is at sea: no government uses automatons for fleets.</span>
+          </Narrative>
           <Title>The academic foundation.</Title>
         </div>
 
-        <div className="reveal-stagger grid md:grid-cols-2 gap-5 max-w-5xl mx-auto">
-          {[
-            {
-              t: "Hyper-Heuristic Driven Smart Contracts for DeFi",
-              meta: "Frontiers in Blockchain · 2025",
-              d: "+45.6% success rate · −28.3% gas consumption.",
-            },
-            {
-              t: "MVF-Composer",
-              meta: "arXiv preprint",
-              d: "57% lower max deviation across 1,200 scenarios.",
-            },
-            {
-              t: "Hybrid Stabilization for Algorithmic Stablecoins",
-              meta: "Working paper",
-              d: "PID control vs. governance-driven adjustment.",
-            },
-            {
-              t: "When AI Meets Stablecoin",
-              meta: "Survey · 2024",
-              d: "Mapping autonomous agents to monetary policy.",
-            },
-            {
-              t: "Autonomous Agents in DeFi",
-              meta: "Crypto Economics Review",
-              d: "Mechanism design for bounded execution.",
-            },
-            {
-              t: "A Taxonomy of Parameter Governance",
-              meta: "Reflecter Labs · 2025",
-              d: "From off-chain advisory to on-chain enforcement.",
-            },
-          ].map((p) => (
-            <div
-              key={p.t}
-              className="group p-6 rounded-xl border border-border/60 bg-card/70 backdrop-blur-sm hover:border-secondary/60 hover:-translate-y-1 hover:shadow-[0_10px_40px_hsl(var(--secondary)/0.2)] transition-all duration-500"
-            >
-              <p className="mono text-[10px] tracking-widest text-secondary/80 mb-2">
-                {p.meta}
-              </p>
-              <h4 className="font-serif text-xl mb-2 group-hover:text-primary transition-colors">
-                {p.t}
-              </h4>
-              <p className="text-sm text-muted-foreground">{p.d}</p>
-            </div>
-          ))}
-        </div>
-
-        <div data-parallax="0.1" className="mt-12 reveal-scale opacity-70">
-          <img src={slide7} alt="Wall of marble plaques" loading="lazy" className="w-full max-w-4xl mx-auto" />
+        <div className="grid lg:grid-cols-5 gap-10 items-center">
+          <ParallaxArt
+            src={slide7}
+            alt="Thales unrolling papyri in the library"
+            parallax={0.14}
+            className="lg:col-span-2"
+          />
+          <div className="reveal-stagger lg:col-span-3 grid sm:grid-cols-2 gap-4">
+            {[
+              {
+                t: "Hyper-Heuristic Smart Contracts",
+                meta: "Frontiers in Blockchain · 2025",
+                d: "+45.6% success · −28.3% gas.",
+              },
+              {
+                t: "MVF-Composer",
+                meta: "arXiv preprint",
+                d: "57% lower max deviation · 1,200 scenarios.",
+              },
+              {
+                t: "Hybrid Stabilization",
+                meta: "Working paper",
+                d: "PID vs. governance-driven adjustment.",
+              },
+              {
+                t: "When AI Meets Stablecoin",
+                meta: "Survey · 2024",
+                d: "Autonomous agents → monetary policy.",
+              },
+              {
+                t: "Autonomous Agents in DeFi",
+                meta: "Crypto Economics Review",
+                d: "Mechanism design for bounded execution.",
+              },
+              {
+                t: "Taxonomy of Parameter Governance",
+                meta: "Reflecter Labs · 2025",
+                d: "Off-chain advisory → on-chain enforcement.",
+              },
+            ].map((p) => (
+              <div
+                key={p.t}
+                className="group p-5 rounded-xl border border-border/60 bg-card/70 backdrop-blur-sm hover:border-secondary/60 hover:-translate-y-1 hover:shadow-[0_10px_40px_hsl(var(--secondary)/0.2)] transition-all duration-500"
+              >
+                <p className="mono text-[10px] tracking-widest text-secondary/80 mb-2">
+                  {p.meta}
+                </p>
+                <h4 className="font-serif text-lg mb-1 group-hover:text-primary transition-colors">
+                  {p.t}
+                </h4>
+                <p className="text-xs text-muted-foreground">{p.d}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </StoryFrame>
 
-      {/* SLIDE 8 — MOATS */}
-      <StoryFrame
-        id="slide-8"
-        index={8}
-        total={TOTAL}
-        story='"¿Y si el Kybernetes falla?" — "No importa qué piloto. Nuestro mecanismo acepta cualquier autómata registrado. Agnóstico al modelo."'
-      >
-        <div className="text-center mb-10">
+      {/* SLIDE 8 — MOATS · The Kybernetes might fail */}
+      <StoryFrame id="slide-8" index={8} total={TOTAL}>
+        <div className="text-center mb-10 max-w-4xl mx-auto">
           <Eyebrow>VIII · Moats</Eyebrow>
+          <Narrative chapter="08 · Many Pilots" speaker="Cálicles answering a skeptic">
+            <span className="not-italic">"And if the Kybernetes fails?"</span> — It does not matter which pilot.
+            <span className="not-italic text-foreground"> Our mechanism accepts any registered automaton.</span> Model-agnostic.
+          </Narrative>
           <Title>A marketplace of governance.</Title>
           <Body>
-            Parameter Guard doesn't mandate a single AI model. Any agent registered via
+            Parameter Guard does not mandate a single AI model. Any agent registered via
             ERC-8004 can participate. Protocols may whitelist custom models. The contract
             enforces the same bounds. Agents compete. Unsafe proposals are rejected on-chain.
           </Body>
         </div>
 
-        <div data-parallax="0.05" className="reveal-scale mt-8">
-          <img
-            src={slide8}
-            alt="Frieze of marble owls connected by golden lines"
-            loading="lazy"
-            className="w-full max-w-6xl mx-auto"
-          />
-        </div>
+        <ParallaxArt
+          src={slide8}
+          alt="Frieze of owls connected by gold lines to a central contract glyph"
+          parallax={0.08}
+          className="mt-4"
+        />
 
         <div className="reveal-stagger grid md:grid-cols-3 gap-4 mt-10 max-w-4xl mx-auto">
           {[
@@ -451,15 +475,14 @@ export const StorySlides = () => {
         </div>
       </StoryFrame>
 
-      {/* SLIDE 9 — PATH */}
-      <StoryFrame
-        id="slide-9"
-        index={9}
-        total={TOTAL}
-        story='Cálicles muestra un mapa: "Esta luna, en tres trirremes; luego toda la flota; al año, Esparta y Corinto."'
-      >
-        <div className="text-center mb-10">
+      {/* SLIDE 9 — PATH · Cálicles shows the map */}
+      <StoryFrame id="slide-9" index={9} total={TOTAL}>
+        <div className="text-center mb-10 max-w-4xl mx-auto">
           <Eyebrow>IX · Path</Eyebrow>
+          <Narrative chapter="09 · The Map" speaker="Cálicles, pointing seaward">
+            This moon, three triremes. Then the whole fleet. Within a year:
+            <span className="not-italic text-foreground"> Sparta and Corinth.</span>
+          </Narrative>
           <Title>The path forward.</Title>
         </div>
 
@@ -495,7 +518,7 @@ export const StorySlides = () => {
               </li>
               <li className="flex gap-3">
                 <span className="text-primary mono text-sm mt-0.5">02</span>
-                <span>Fine-tune Qwen 2.5 → local deploy, sub-100ms, zero inference cost</span>
+                <span>Fine-tune Qwen 2.5 → local deploy, sub-100ms</span>
               </li>
               <li className="flex gap-3">
                 <span className="text-primary mono text-sm mt-0.5">03</span>
@@ -509,27 +532,25 @@ export const StorySlides = () => {
           </div>
         </div>
 
-        <div data-parallax="0.08" className="mt-14 reveal-scale">
-          <img
-            src={slide9}
-            alt="Marble frieze depicting trireme procession"
-            loading="lazy"
-            className="w-full max-w-6xl mx-auto opacity-95"
-          />
-        </div>
+        <ParallaxArt
+          src={slide9}
+          alt="Frieze: a fleet of triremes growing toward distant cities"
+          parallax={0.1}
+          className="mt-12"
+        />
       </StoryFrame>
 
-      {/* SLIDE 10 — CALL */}
-      <StoryFrame
-        id="slide-10"
-        index={10}
-        total={TOTAL}
-        story='Cálicles clava su bastón: "No voten cada cuerda. Voten los horoi — los límites sagrados. ¿Aprobamos el Kybernetes?"'
-      >
+      {/* SLIDE 10 — CALL · Cálicles plants his staff */}
+      <StoryFrame id="slide-10" index={10} total={TOTAL}>
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <Eyebrow>X · The Call</Eyebrow>
-            <h2 className="reveal font-serif text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight mb-8">
+            <Narrative chapter="10 · The Vote" speaker="Cálicles, planting his staff">
+              Do not vote on every rope. Vote on the <span className="not-italic text-foreground">horoi</span> — the sacred limits.
+              The human defines the horoi. The agents compete within them.
+              <span className="not-italic text-foreground"> Do we approve the Kybernetes?</span>
+            </Narrative>
+            <h2 className="reveal font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight mb-6">
               Introducing{" "}
               <span className="text-gradient-gold">Grinta</span> —
               <br />
@@ -537,9 +558,9 @@ export const StorySlides = () => {
               <span className="italic">Horos</span>.
             </h2>
             <Body>
-              The first stablecoin CDP where an autonomous agent governs it. Grinta runs on
-              Parameter Guard — the Horos Protocol. Responds to market shocks in blocks,
-              not days. Sub-cent operation. Fully on-chain. Fully auditable.
+              An autonomous agent governs it. Grinta runs on Parameter Guard — the Horos
+              Protocol. Responds to market shocks in blocks, not days. Sub-cent operation.
+              Fully on-chain. Fully auditable.
             </Body>
 
             <div className="reveal mt-8">
@@ -562,8 +583,12 @@ export const StorySlides = () => {
             </p>
           </div>
 
-          <div data-parallax="0.15" className="reveal-scale">
-            <VisualFrame src={slide10} alt="Unrolled papyrus scroll on marble pedestal" />
+          <div>
+            <ParallaxArt
+              src={slide10}
+              alt="Cálicles plants his staff as the HOROS scroll unfurls above the Assembly"
+              parallax={0.18}
+            />
             <p className="mt-6 text-center mono text-xs tracking-[0.4em] text-muted-foreground/70">
               REFLECTER LABS · HOROS PROTOCOL
             </p>

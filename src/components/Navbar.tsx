@@ -67,14 +67,14 @@ export const Navbar = () => {
               {SECTIONS.map((s) => {
                 const isActive = onHome && hash === `#${s.id}`;
                 return (
-                  <a
+                    <a
                     key={s.id}
                     href={`/#${s.id}`}
                     onClick={(e) => handleAnchor(e, s.id)}
-                    className={`relative px-3 py-2 mono text-[11px] tracking-[0.25em] uppercase transition-colors ${
+                    className={`relative px-3 py-2 mono text-[13px] tracking-[0.25em] uppercase transition-colors ${
                       isActive
                         ? "text-secondary"
-                        : "text-foreground/65 hover:text-foreground"
+                        : "text-foreground hover:text-foreground"
                     }`}
                   >
                     {s.label}

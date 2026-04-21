@@ -1,4 +1,4 @@
-import { MessageCircle } from "lucide-react";
+import { MessageCircle, ExternalLink } from "lucide-react";
 
 const XLogo = ({ className }: { className?: string }) => (
   <svg

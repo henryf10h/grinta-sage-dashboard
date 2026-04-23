@@ -54,6 +54,7 @@ const RiskBadge = ({ kind }: { kind: RiskCell["kind"] }) => {
   return <span className="font-bold text-destructive">YES</span>;
 };
 
+
 export const CompareTable = () => {
   return (
     <section className="relative px-6 py-12 md:py-16">

@@ -48,10 +48,10 @@ const ROWS: Row[] = [
 
 const ROMAN = ["I", "II", "III", "IV"];
 
-const RiskIcon = ({ kind }: { kind: RiskCell["kind"] }) => {
+const RiskBadge = ({ kind }: { kind: RiskCell["kind"] }) => {
   if (kind === "no")
-    return <Check className="w-4 h-4 text-primary shrink-0" />;
-  return <X className="w-4 h-4 text-destructive/70 shrink-0" />;
+    return <span className="font-bold text-primary">NO</span>;
+  return <span className="font-bold text-destructive">YES</span>;
 };
 
 export const CompareTable = () => {

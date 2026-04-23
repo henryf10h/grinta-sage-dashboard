@@ -62,11 +62,15 @@ const Index = () => {
             {/* Standards row — gold hairline above & below */}
             <div className="reveal w-full max-w-3xl mt-16">
               <div className="h-px w-full bg-gradient-to-r from-transparent via-secondary/50 to-transparent" />
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-6 py-7">
-                {STANDARDS.map((s) => (
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-6 py-7 place-items-center">
+                {STANDARDS.map((s, idx) => (
                   <div
                     key={s.label}
-                    className="flex flex-col items-center gap-1.5 px-2"
+                    className={`flex flex-col items-center gap-1.5 px-2 ${
+                      idx === STANDARDS.length - 1
+                        ? "col-span-2 md:col-span-1"
+                        : ""
+                    }`}
                   >
                     <span className="font-serif text-xl md:text-2xl text-foreground tracking-tight">
                       {s.label}

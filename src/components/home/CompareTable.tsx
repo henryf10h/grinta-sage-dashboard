@@ -1,5 +1,3 @@
-import { Check, X } from "lucide-react";
-
 type RiskCell = { kind: "yes" | "no"; label: string };
 
 type Row = {
@@ -50,10 +48,10 @@ const ROWS: Row[] = [
 
 const ROMAN = ["I", "II", "III", "IV"];
 
-const RiskIcon = ({ kind }: { kind: RiskCell["kind"] }) => {
+const RiskBadge = ({ kind }: { kind: RiskCell["kind"] }) => {
   if (kind === "no")
-    return <Check className="w-4 h-4 text-primary shrink-0" />;
-  return <X className="w-4 h-4 text-destructive/70 shrink-0" />;
+    return <span className="font-bold text-primary">NO</span>;
+  return <span className="font-bold text-destructive">YES</span>;
 };
 
 export const CompareTable = () => {
@@ -136,10 +134,7 @@ export const CompareTable = () => {
                     </span>
                   </div>
                   <div className={`col-span-2 ${cellBase} ${cellTone}`}>
-                    <span className="inline-flex items-center gap-2">
-                      <RiskIcon kind={row.humanRisk.kind} />
-                      {row.humanRisk.label}
-                    </span>
+                    <RiskBadge kind={row.humanRisk.kind} />
                   </div>
                   <div className={`col-span-2 ${cellBase} ${cellTone}`}>
                     {row.marketCap}
@@ -185,10 +180,7 @@ export const CompareTable = () => {
               <div className="space-y-2 text-sm">
                 <div className="flex items-center justify-between">
                   <span className="text-muted-foreground">Human Risk</span>
-                  <span className="inline-flex items-center gap-2">
-                    <RiskIcon kind={row.humanRisk.kind} />
-                    {row.humanRisk.label}
-                  </span>
+                  <RiskBadge kind={row.humanRisk.kind} />
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-muted-foreground">Market Cap</span>

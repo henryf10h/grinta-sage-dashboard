@@ -48,11 +48,11 @@ const ROWS: Row[] = [
 
 const ROMAN = ["I", "II", "III", "IV"];
 
-const RiskBadge = ({ kind }: { kind: RiskCell["kind"] }) => {
-  if (kind === "no")
-    return <span className="font-bold text-primary">NO</span>;
-  return <span className="font-bold text-destructive">YES</span>;
-};
+const RISK_NO = "no" as const;
+const RISK_YES = "yes" as const;
+void RISK_NO;
+void RISK_YES;
+
 
 export const CompareTable = () => {
   return (

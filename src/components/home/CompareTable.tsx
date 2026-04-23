@@ -180,10 +180,7 @@ export const CompareTable = () => {
               <div className="space-y-2 text-sm">
                 <div className="flex items-center justify-between">
                   <span className="text-muted-foreground">Human Risk</span>
-                  <span className="inline-flex items-center gap-2">
-                    <RiskIcon kind={row.humanRisk.kind} />
-                    {row.humanRisk.label}
-                  </span>
+                  <RiskBadge kind={row.humanRisk.kind} />
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-muted-foreground">Market Cap</span>

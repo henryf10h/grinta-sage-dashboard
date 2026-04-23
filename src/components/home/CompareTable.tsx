@@ -134,10 +134,7 @@ export const CompareTable = () => {
                     </span>
                   </div>
                   <div className={`col-span-2 ${cellBase} ${cellTone}`}>
-                    <span className="inline-flex items-center gap-2">
-                      <RiskIcon kind={row.humanRisk.kind} />
-                      {row.humanRisk.label}
-                    </span>
+                    <RiskBadge kind={row.humanRisk.kind} />
                   </div>
                   <div className={`col-span-2 ${cellBase} ${cellTone}`}>
                     {row.marketCap}

@@ -29,13 +29,13 @@ const Index = () => {
         src={column}
         alt=""
         aria-hidden="true"
-        className="hidden lg:block fixed left-0 top-1/2 -translate-y-1/2 h-[90vh] w-auto opacity-[0.09] pointer-events-none select-none z-0"
+        className="hidden lg:block fixed left-0 top-1/2 -translate-y-1/2 h-[90vh] w-auto opacity-[0.08] pointer-events-none select-none z-0"
       />
       <img
         src={column}
         alt=""
         aria-hidden="true"
-        className="hidden lg:block fixed right-0 top-1/2 -translate-y-1/2 h-[90vh] w-auto opacity-[0.09] pointer-events-none select-none scale-x-[-1] z-0"
+        className="hidden lg:block fixed right-0 top-1/2 -translate-y-1/2 h-[90vh] w-auto opacity-[0.08] pointer-events-none select-none scale-x-[-1] z-0"
       />
 
       <Navbar />

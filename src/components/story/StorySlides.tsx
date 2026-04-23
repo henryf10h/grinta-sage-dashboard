@@ -191,26 +191,7 @@ export const StorySlides = () => {
 
       {/* SLIDE 4 — MECHANISM · Cálicles carves three slabs */}
       <StoryFrame id="slide-4" index={4} total={TOTAL}>
-        <div className="text-center mb-10 max-w-4xl mx-auto">
-          <Eyebrow>IV · Mechanism</Eyebrow>
-          <Narrative chapter="04 · Three Slabs" speaker="Cálicles, hammer in hand">
-            I carved three slabs of marble: the bounds of the parameter, the maximum delta,
-            the cooldown. The Kybernetes proposes — the marble contract validates. We call it
-            <span className="not-italic text-foreground"> Grinta Governance</span> — the law that cannot be crossed.
-          </Narrative>
-          <Title>
-            Parameter Guard
-            <br />
-            <span className="font-serif italic text-gradient-gold text-3xl md:text-4xl">
-              "We call it: Grinta Governance."
-            </span>
-          </Title>
-          <p className="reveal mono text-[12px] md:text-[13px] tracking-[0.4em] text-muted-foreground uppercase">
-            HOROS · ὅρος · THE SACRED BOUNDARY
-          </p>
-        </div>
-
-        <div className="grid lg:grid-cols-5 gap-8 items-center">
+        <div className="grid lg:grid-cols-5 gap-10 lg:gap-12 items-center">
           <ParallaxArt
             src={slide4}
             alt="Cálicles carves three monumental marble tablets"
@@ -218,37 +199,56 @@ export const StorySlides = () => {
             className="lg:col-span-2"
           />
 
-          <div className="reveal-stagger lg:col-span-3 grid gap-4">
-            {[
-              {
-                n: "I",
-                t: "Protocols Define Policies",
-                d: "Allowed parameter range, max change per update, cooldown, emergency stop.",
-              },
-              {
-                n: "II",
-                t: "Agents Execute Within Bounds",
-                d: "Registered via ERC-8004, compete to propose, paid via X402.",
-              },
-              {
-                n: "III",
-                t: "Contracts Enforce Limits",
-                d: "Validates bounds, delta, cooldown, records PDR on-chain.",
-              },
-            ].map((c) => (
-              <div
-                key={c.n}
-                className="group relative p-6 rounded-sm border border-foreground/10 bg-card/70 backdrop-blur-sm transition-all duration-300 hover:border-secondary/40 hover:shadow-[0_10px_30px_-15px_hsl(215_28%_17%/0.25)] flex gap-5 items-start"
-              >
-                <div className="font-serif italic text-4xl text-secondary/60 group-hover:text-secondary transition-colors leading-none w-8">
-                  {c.n}
+          <div className="lg:col-span-3">
+            <Eyebrow>IV · Mechanism</Eyebrow>
+            <Narrative chapter="04 · Three Slabs" speaker="Cálicles, hammer in hand">
+              I carved three slabs of marble: the bounds of the parameter, the maximum delta,
+              the cooldown. The Kybernetes proposes — the marble contract validates. We call it
+              <span className="not-italic text-foreground"> Grinta Governance</span> — the law that cannot be crossed.
+            </Narrative>
+            <Title>
+              Parameter Guard
+              <br />
+              <span className="font-serif italic text-gradient-gold text-3xl md:text-4xl">
+                "We call it: Grinta Governance."
+              </span>
+            </Title>
+            <p className="reveal mono text-[12px] md:text-[13px] tracking-[0.4em] text-muted-foreground uppercase mb-8">
+              HOROS · ὅρος · THE SACRED BOUNDARY
+            </p>
+
+            <div className="reveal-stagger grid gap-4">
+              {[
+                {
+                  n: "I",
+                  t: "Protocols Define Policies",
+                  d: "Allowed parameter range, max change per update, cooldown, emergency stop.",
+                },
+                {
+                  n: "II",
+                  t: "Agents Execute Within Bounds",
+                  d: "Registered via ERC-8004, compete to propose, paid via X402.",
+                },
+                {
+                  n: "III",
+                  t: "Contracts Enforce Limits",
+                  d: "Validates bounds, delta, cooldown, records PDR on-chain.",
+                },
+              ].map((c) => (
+                <div
+                  key={c.n}
+                  className="group relative p-6 rounded-sm border border-foreground/10 bg-card/70 backdrop-blur-sm transition-all duration-300 hover:border-secondary/40 hover:shadow-[0_10px_30px_-15px_hsl(215_28%_17%/0.25)] flex gap-5 items-start"
+                >
+                  <div className="font-serif italic text-4xl text-secondary/60 group-hover:text-secondary transition-colors leading-none w-8">
+                    {c.n}
+                  </div>
+                  <div>
+                    <h3 className="font-serif text-xl md:text-2xl mb-2 text-foreground">{c.t}</h3>
+                    <p className="text-sm md:text-base text-foreground/75 leading-relaxed">{c.d}</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-serif text-xl md:text-2xl mb-2 text-foreground">{c.t}</h3>
-                  <p className="text-sm md:text-base text-foreground/75 leading-relaxed">{c.d}</p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </StoryFrame>
@@ -380,68 +380,68 @@ export const StorySlides = () => {
 
       {/* SLIDE 7 — EVIDENCE · Thales unfurls scrolls */}
       <StoryFrame id="slide-7" index={7} total={TOTAL}>
-        <div className="text-center mb-10 max-w-4xl mx-auto">
-          <Eyebrow>VII · Evidence</Eyebrow>
-          <Narrative chapter="07 · The Library" speaker="Thales unfurling scrolls">
-            In Miletus they used this for granaries. In Syracuse, for aqueducts.
-            <span className="not-italic text-foreground"> The void is at sea: no government uses automatons for fleets.</span>
-          </Narrative>
-          <Title>The academic foundation.</Title>
-        </div>
-
-        <div className="grid lg:grid-cols-5 gap-10 items-center">
+        <div className="grid lg:grid-cols-5 gap-10 lg:gap-12 items-center">
           <ParallaxArt
             src={slide7}
             alt="Thales unrolling papyri in the library"
             parallax={0.14}
             className="lg:col-span-2"
           />
-          <div className="reveal-stagger lg:col-span-3 grid sm:grid-cols-2 gap-4">
-            {[
-              {
-                t: "Hyper-Heuristic Smart Contracts",
-                meta: "Frontiers in Blockchain · 2025",
-                d: "+45.6% success · −28.3% gas.",
-              },
-              {
-                t: "MVF-Composer",
-                meta: "arXiv preprint",
-                d: "57% lower max deviation · 1,200 scenarios.",
-              },
-              {
-                t: "Hybrid Stabilization",
-                meta: "Working paper",
-                d: "PID vs. governance-driven adjustment.",
-              },
-              {
-                t: "When AI Meets Stablecoin",
-                meta: "Survey · 2024",
-                d: "Autonomous agents → monetary policy.",
-              },
-              {
-                t: "Autonomous Agents in DeFi",
-                meta: "Crypto Economics Review",
-                d: "Mechanism design for bounded execution.",
-              },
-              {
-                t: "Taxonomy of Parameter Governance",
-                meta: "Reflecter Labs · 2025",
-                d: "Off-chain advisory → on-chain enforcement.",
-              },
-            ].map((p) => (
-              <div
-                key={p.t}
-                className="group p-5 rounded-sm border border-foreground/10 bg-card/70 backdrop-blur-sm hover:border-secondary/40 hover:shadow-[0_10px_30px_-15px_hsl(215_28%_17%/0.25)] transition-all duration-300"
-              >
-                <p className="mono text-[11px] tracking-[0.3em] uppercase text-secondary/80 mb-2">
-                  {p.meta}
-                </p>
-                <h4 className="font-serif text-lg md:text-xl mb-1 text-foreground group-hover:text-primary transition-colors">
-                  {p.t}
-                </h4>
-                <p className="text-sm text-foreground/75 leading-relaxed">{p.d}</p>
-              </div>
-            ))}
+          <div className="lg:col-span-3">
+            <Eyebrow>VII · Evidence</Eyebrow>
+            <Narrative chapter="07 · The Library" speaker="Thales unfurling scrolls">
+              In Miletus they used this for granaries. In Syracuse, for aqueducts.
+              <span className="not-italic text-foreground"> The void is at sea: no government uses automatons for fleets.</span>
+            </Narrative>
+            <Title>The academic foundation.</Title>
+
+            <div className="reveal-stagger grid sm:grid-cols-2 gap-4 mt-8">
+              {[
+                {
+                  t: "Hyper-Heuristic Smart Contracts",
+                  meta: "Frontiers in Blockchain · 2025",
+                  d: "+45.6% success · −28.3% gas.",
+                },
+                {
+                  t: "MVF-Composer",
+                  meta: "arXiv preprint",
+                  d: "57% lower max deviation · 1,200 scenarios.",
+                },
+                {
+                  t: "Hybrid Stabilization",
+                  meta: "Working paper",
+                  d: "PID vs. governance-driven adjustment.",
+                },
+                {
+                  t: "When AI Meets Stablecoin",
+                  meta: "Survey · 2024",
+                  d: "Autonomous agents → monetary policy.",
+                },
+                {
+                  t: "Autonomous Agents in DeFi",
+                  meta: "Crypto Economics Review",
+                  d: "Mechanism design for bounded execution.",
+                },
+                {
+                  t: "Taxonomy of Parameter Governance",
+                  meta: "Reflecter Labs · 2025",
+                  d: "Off-chain advisory → on-chain enforcement.",
+                },
+              ].map((p) => (
+                <div
+                  key={p.t}
+                  className="group p-5 rounded-sm border border-foreground/10 bg-card/70 backdrop-blur-sm hover:border-secondary/40 hover:shadow-[0_10px_30px_-15px_hsl(215_28%_17%/0.25)] transition-all duration-300"
+                >
+                  <p className="mono text-[11px] tracking-[0.3em] uppercase text-secondary/80 mb-2">
+                    {p.meta}
+                  </p>
+                  <h4 className="font-serif text-lg md:text-xl mb-1 text-foreground group-hover:text-primary transition-colors">
+                    {p.t}
+                  </h4>
+                  <p className="text-sm text-foreground/75 leading-relaxed">{p.d}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </StoryFrame>

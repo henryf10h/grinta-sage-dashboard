@@ -62,11 +62,15 @@ const Index = () => {
             {/* Standards row — gold hairline above & below */}
             <div className="reveal w-full max-w-3xl mt-16">
               <div className="h-px w-full bg-gradient-to-r from-transparent via-secondary/50 to-transparent" />
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-6 py-7">
-                {STANDARDS.map((s) => (
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-6 py-7 place-items-center">
+                {STANDARDS.map((s, idx) => (
                   <div
                     key={s.label}
-                    className="flex flex-col items-center gap-1.5 px-2"
+                    className={`flex flex-col items-center gap-1.5 px-2 ${
+                      idx === STANDARDS.length - 1
+                        ? "col-span-2 md:col-span-1"
+                        : ""
+                    }`}
                   >
                     <span className="font-serif text-xl md:text-2xl text-foreground tracking-tight">
                       {s.label}
@@ -82,9 +86,11 @@ const Index = () => {
           </div>
         </section>
 
-        <SectionDivider label="Why this matters" />
+        <div id="why" className="scroll-mt-28">
+          <SectionDivider label="Why this matters" />
+        </div>
         {/* HERO 2 — Parchment + governance failures wire */}
-        <section id="why" className="relative min-h-screen flex items-center px-6 py-10 scroll-mt-24">
+        <section className="relative flex items-center px-6 pt-2 pb-10">
           <div className="relative w-full max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
             <div>
               <h2 className="reveal font-serif text-3xl md:text-4xl leading-[1.1] tracking-tight text-foreground mb-6 text-center">
@@ -102,17 +108,21 @@ const Index = () => {
           </div>
         </section>
 
-        <SectionDivider label="Product" />
-        <div id="grinta" className="scroll-mt-24">
-          <GrintaIntro />
+        <div id="grinta" className="scroll-mt-28">
+          <SectionDivider label="Product" />
         </div>
-        <SectionDivider label="Scorecard" />
-        <div id="scorecard" className="scroll-mt-24">
-          <CompareTable />
+        <GrintaIntro />
+        <div id="scorecard" className="scroll-mt-28">
+          <SectionDivider label="Scorecard" />
         </div>
-        <SectionDivider label="Reputation" />
+        <CompareTable />
+        <div id="reputation" className="scroll-mt-28">
+          <SectionDivider label="Reputation" />
+        </div>
         <Reputation />
-        <SectionDivider label="Infrastructure" />
+        <div id="infrastructure" className="scroll-mt-28">
+          <SectionDivider label="Infrastructure" />
+        </div>
         <Infrastructure />
 
         <footer className="relative">

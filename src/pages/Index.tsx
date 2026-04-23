@@ -108,17 +108,21 @@ const Index = () => {
           </div>
         </section>
 
-        <SectionDivider label="Product" />
-        <div id="grinta" className="scroll-mt-24">
-          <GrintaIntro />
+        <div id="grinta" className="scroll-mt-28">
+          <SectionDivider label="Product" />
         </div>
-        <SectionDivider label="Scorecard" />
-        <div id="scorecard" className="scroll-mt-24">
-          <CompareTable />
+        <GrintaIntro />
+        <div id="scorecard" className="scroll-mt-28">
+          <SectionDivider label="Scorecard" />
         </div>
-        <SectionDivider label="Reputation" />
+        <CompareTable />
+        <div id="reputation" className="scroll-mt-28">
+          <SectionDivider label="Reputation" />
+        </div>
         <Reputation />
-        <SectionDivider label="Infrastructure" />
+        <div id="infrastructure" className="scroll-mt-28">
+          <SectionDivider label="Infrastructure" />
+        </div>
         <Infrastructure />
 
         <footer className="relative">

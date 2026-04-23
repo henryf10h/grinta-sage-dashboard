@@ -1,5 +1,3 @@
-import { Check, X } from "lucide-react";
-
 type RiskCell = { kind: "yes" | "no"; label: string };
 
 type Row = {

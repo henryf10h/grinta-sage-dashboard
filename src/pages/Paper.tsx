@@ -31,16 +31,16 @@ const Paper = () => {
       <main className="relative z-10 pt-24">
         <StorySlides />
 
-        <footer className="text-center text-sm text-muted-foreground py-24 pb-40 italic font-serif">
+        <footer className="text-center text-foreground/80 py-24 pb-40 italic font-serif text-xl md:text-2xl px-6">
           "The unexamined protocol is not worth governing." —{" "}
           <a
             href="https://reflecterlabs.xyz"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 hover:text-secondary transition-colors not-italic"
+            className="inline-flex items-center gap-1.5 hover:text-secondary transition-colors not-italic"
           >
             Reflecter Labs · Grinta Governance
-            <ExternalLink className="w-3 h-3" />
+            <ExternalLink className="w-4 h-4 md:w-5 md:h-5" />
           </a>
         </footer>
       </main>

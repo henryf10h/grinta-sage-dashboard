@@ -86,9 +86,11 @@ const Index = () => {
           </div>
         </section>
 
-        <SectionDivider label="Why this matters" />
+        <div id="why" className="scroll-mt-28">
+          <SectionDivider label="Why this matters" />
+        </div>
         {/* HERO 2 — Parchment + governance failures wire */}
-        <section id="why" className="relative flex items-center px-6 pt-2 pb-10 scroll-mt-24">
+        <section className="relative flex items-center px-6 pt-2 pb-10">
           <div className="relative w-full max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
             <div>
               <h2 className="reveal font-serif text-3xl md:text-4xl leading-[1.1] tracking-tight text-foreground mb-6 text-center">

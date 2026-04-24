@@ -9,7 +9,7 @@ import slide7 from "@/assets/slide7-plaques.jpg";
 import slide8 from "@/assets/slide8-owl-frieze.jpg";
 import slide9 from "@/assets/slide9-roadmap-frieze.jpg";
 import slide10 from "@/assets/slide10-scroll.jpg";
-import { ExternalLink, ArrowDown } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 
 const TOTAL = 10;
 
@@ -91,10 +91,6 @@ const ParallaxArt = ({
 );
 
 export const StorySlides = () => {
-  const scrollToDemo = () => {
-    document.getElementById("slide-6")?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <>
       {/* SLIDE 1 — TRAUMA · Cálicles arrives */}
@@ -579,8 +575,10 @@ export const StorySlides = () => {
             </Body>
 
             <div className="reveal mt-8">
-              <button
-                onClick={scrollToDemo}
+              <a
+                href="https://grinta-prototype-ui.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2 px-7 py-4 rounded-md text-primary-foreground font-medium text-base shadow-[0_8px_30px_-8px_hsl(var(--primary)/0.6)] hover:shadow-[0_12px_40px_-8px_hsl(var(--primary)/0.7)] hover:-translate-y-0.5 transition-all"
                 style={{
                   background:
@@ -588,8 +586,8 @@ export const StorySlides = () => {
                 }}
               >
                 Witness the Governor in Action
-                <ArrowDown className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
-              </button>
+                <ExternalLink className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
+              </a>
             </div>
 
             <p className="reveal mt-10 font-serif italic text-xl md:text-2xl text-gradient-gold leading-snug border-l border-secondary/40 pl-6">
